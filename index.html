@@ -1,0 +1,377 @@
+<title>Windmill Apartments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Commissioner:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --wall:#F2F3EE;       /* limewash, cool */
+  --wall-2:#E6E9E2;
+  --ink:#13303A;        /* the gulf at depth */
+  --ink-soft:#4E6570;
+  --pine:#2E5A4C;
+  --beam:#5B3A26;       /* stained roof beams */
+  --peacock:#0B7A83;
+  --peacock-ink:#FFFFFF;
+  --line:rgba(19,48,58,.16);
+  --card:#FFFFFF;
+  --shade:rgba(10,28,34,.55);
+  --display:"GFS Didot","Didot","Bodoni 72",Georgia,serif;
+  --body:"Commissioner","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --wall:#0F1D22; --wall-2:#162A31; --ink:#E4ECE9; --ink-soft:#9DB2B4;
+    --pine:#7FB8A4; --beam:#D2A983; --peacock:#43B7BC; --peacock-ink:#07262A;
+    --line:rgba(228,236,233,.14); --card:#15262C; --shade:rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --wall:#0F1D22; --wall-2:#162A31; --ink:#E4ECE9; --ink-soft:#9DB2B4;
+  --pine:#7FB8A4; --beam:#D2A983; --peacock:#43B7BC; --peacock-ink:#07262A;
+  --line:rgba(228,236,233,.14); --card:#15262C; --shade:rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;font-weight:400}
+#wm[data-lang="el"] [data-l="en"],#wm[data-lang="en"] [data-l="el"]{display:none!important}
+a{color:var(--peacock)}
+:focus-visible{outline:2px solid var(--peacock);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;line-height:1.08;margin:0}
+h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+h3{font-size:1.5rem}
+p{margin:0}
+.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--wall) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;min-height:58px}
+.brand{font-family:var(--display);font-size:1.3rem;margin-right:auto;text-decoration:none;color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:none;color:var(--ink-soft);font:500 .8rem var(--body);padding:6px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--wall)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--peacock);color:var(--peacock-ink);border:0;border-radius:999px;padding:11px 20px;font:600 .92rem var(--body);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.bar .btn{padding:8px 16px}
+@media (max-width:520px){.bar .btn{display:none}}
+
+/* hero */
+.hero{position:relative}
+.hero img{display:block;width:100%;height:clamp(360px,62vw,680px);object-fit:cover}
+.hero-panel{position:relative;margin:-120px auto 0;max-width:1180px;padding-inline:clamp(16px,4vw,40px)}
+.hero-card{background:var(--wall);padding:clamp(22px,4vw,44px);max-width:720px;display:grid;gap:16px}
+.hero-card h1{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.01em}
+.hero-card h1 em{font-style:italic;color:var(--peacock)}
+.lede{font-size:1.12rem;color:var(--ink-soft);max-width:34em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+
+/* logbook strip: the one detail only this place has */
+.log{margin-top:clamp(28px,5vw,56px);border-block:1px solid var(--line)}
+.log .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.log div{padding:18px 16px;border-left:1px solid var(--line);display:grid;gap:2px}
+.log div:first-child{border-left:0;padding-left:0}
+.log b{font-family:var(--display);font-weight:400;font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.log span{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em}
+@media (max-width:820px){.log .wrap{grid-template-columns:repeat(2,1fr)}.log div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.log div:first-child{grid-column:1/-1;border-top:0}}
+
+section{padding-block:clamp(56px,9vw,110px)}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.split.rev{grid-template-columns:.9fr 1.1fr}
+.split.rev .text{order:2}
+@media (max-width:860px){.split,.split.rev{grid-template-columns:1fr}.split.rev .text{order:0}}
+.text{display:grid;gap:18px;max-width:34em}
+.text p{color:var(--ink-soft)}
+.photo{margin:0}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;max-width:100%}
+.photo figcaption{font-size:.8rem;color:var(--ink-soft);margin-top:8px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair .photo img{aspect-ratio:3/4}
+
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:4px 0 0;padding:0;list-style:none}
+.facts li{padding-top:10px;border-top:1px solid var(--line);font-size:.95rem}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:32px}
+.gallery button{padding:0;border:0;background:none;cursor:zoom-in;display:block;overflow:hidden}
+.gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery button:hover img{transform:scale(1.03)}
+.g-a{grid-column:span 7;aspect-ratio:7/5}
+.g-b{grid-column:span 5;aspect-ratio:5/5}
+.g-c{grid-column:span 4;aspect-ratio:1}
+@media (max-width:700px){.g-a,.g-b,.g-c{grid-column:span 6;aspect-ratio:1}}
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,16,20,.92);display:grid;place-items:center;padding:24px}
+.lightbox img{max-width:100%;max-height:86vh;object-fit:contain}
+.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#13303A;border:0;border-radius:999px;padding:8px 14px;font:600 .9rem var(--body);cursor:pointer}
+
+/* estate band */
+.band{background:var(--ink);color:var(--wall)}
+.band .text p{color:color-mix(in srgb,var(--wall) 78%,transparent)}
+.band .eyebrow{color:color-mix(in srgb,var(--wall) 70%,transparent)}
+
+/* distances */
+.chart{margin-top:28px;border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row b{font-family:var(--display);font-weight:400;font-size:1.5rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row small{display:block;color:var(--ink-soft);font-size:.85rem}
+
+/* reviews */
+.score{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.score b{font-family:var(--display);font-weight:400;font-size:clamp(3.4rem,8vw,5rem);line-height:1;color:var(--peacock)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:36px}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+.quotes blockquote{margin:0;display:grid;gap:12px;align-content:start}
+.quotes p{font-family:var(--display);font-size:1.28rem;line-height:1.35}
+.quotes cite{font-style:normal;font-size:.82rem;color:var(--ink-soft)}
+
+/* booking */
+.book{background:var(--wall-2)}
+.book-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,64px)}
+@media (max-width:860px){.book-grid{grid-template-columns:1fr}}
+form{background:var(--card);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+label{font-size:.8rem;font-weight:500;color:var(--ink-soft);letter-spacing:.03em}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--wall);border:1px solid var(--line);border-radius:6px;padding:11px 12px;width:100%;min-width:0}
+textarea{min-height:92px;resize:vertical}
+.form-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.err{color:#B3261E;font-size:.88rem}
+.result{grid-column:1/-1;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:12px}
+.result pre{white-space:pre-wrap;font:inherit;font-size:.92rem;background:var(--wall);padding:14px;border-radius:6px;margin:0;user-select:all}
+.contact{display:grid;gap:14px;margin-top:8px}
+.contact div{display:grid;gap:2px}
+.contact b{font-family:var(--display);font-weight:400;font-size:1.45rem;user-select:all}
+.contact small{color:var(--ink-soft)}
+.copy{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;font:500 .78rem var(--body);cursor:pointer;justify-self:start}
+
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div id="wm" data-lang="el">
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top">Windmill Apartments</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-el" aria-pressed="true">ΕΛ</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn" href="#book"><span data-l="el">Κράτηση</span><span data-l="en">Book</span></a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <img src="img/hero-balcony.jpg" alt="Θέα από το μπαλκόνι προς τον κόλπο του Γαλαξιδίου">
+</div>
+<div class="hero-panel">
+  <div class="hero-card">
+    <p class="eyebrow"><span data-l="el">Γαλαξίδι · Φωκίδα</span><span data-l="en">Galaxidi · Greece</span></p>
+    <h1><span data-l="el">Στην άκρη του δάσους, <em>δίπλα στη θάλασσα</em></span><span data-l="en">On the edge of the forest, <em>by the sea</em></span></h1>
+    <p class="lede"><span data-l="el">Δύο ανεξάρτητα διαμερίσματα σε κλειστό, ιδιωτικό κτήμα, με μπαλκόνι πάνω από τον κόλπο και παγόνια στην αυλή.</span><span data-l="en">Two independent apartments on a private, gated estate, with balconies over the gulf and peacocks in the garden.</span></p>
+    <div class="hero-actions">
+      <a class="btn" href="#book"><span data-l="el">Ζητήστε διαθεσιμότητα</span><span data-l="en">Check availability</span></a>
+      <a class="btn ghost" href="#photos"><span data-l="el">Φωτογραφίες</span><span data-l="en">Photos</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="log" aria-label="At a glance">
+  <div class="wrap">
+    <div><b>38°22′N 22°23′E</b><span data-l="el">Γαλαξίδι, κόλπος της Ιτέας</span><span data-l="en">Galaxidi, Gulf of Itea</span></div>
+    <div><b>2</b><span data-l="el">ανεξάρτητα διαμερίσματα</span><span data-l="en">independent apartments</span></div>
+    <div><b>75 m²</b><span data-l="el">κάθε διαμέρισμα</span><span data-l="en">each apartment</span></div>
+    <div><b>6</b><span data-l="el">άτομα ανά διαμέρισμα</span><span data-l="en">guests per apartment</span></div>
+    <div><b>9,6</b><span data-l="el">53 κριτικές στη Booking</span><span data-l="en">53 Booking.com reviews</span></div>
+  </div>
+</div>
+
+<section id="apartments">
+  <div class="wrap split">
+    <figure class="photo"><img src="img/living.jpg" alt="Σαλόνι με ξύλινα δοκάρια" loading="lazy"></figure>
+    <div class="text">
+      <p class="eyebrow"><span data-l="el">Τα διαμερίσματα</span><span data-l="en">The apartments</span></p>
+      <h2><span data-l="el">Δύο ίδια σπίτια, το καθένα δικό σας</span><span data-l="en">Two identical homes, each entirely yours</span></h2>
+      <p><span data-l="el">Κάθε διαμέρισμα έχει δική του είσοδο, 2 υπνοδωμάτια, σαλόνι με σκούρα ξύλινα δοκάρια, πλήρη κουζίνα και μπαλκόνι με θέα στη θάλασσα. Αν έρχεστε δύο οικογένειες, κλείστε και τα δύο.</span><span data-l="en">Each apartment has its own entrance, 2 bedrooms, a living room under dark timber beams, a full kitchen and a sea-view balcony. Travelling as two families? Book both.</span></p>
+      <ul class="facts">
+        <li><span data-l="el">2 διπλά κρεβάτια + καναπές-κρεβάτι</span><span data-l="en">2 double beds + sofa bed</span></li>
+        <li><span data-l="el">Κουζίνα, πλυντήριο ρούχων</span><span data-l="en">Kitchen, washing machine</span></li>
+        <li><span data-l="el">Κλιματισμός, δωρεάν Wi-Fi</span><span data-l="en">Air conditioning, free Wi-Fi</span></li>
+        <li><span data-l="el">Δωρεάν πάρκινγκ στο κτήμα</span><span data-l="en">Free parking on the estate</span></li>
+        <li><span data-l="el">Κατοικίδια δεκτά, χωρίς χρέωση</span><span data-l="en">Pets welcome, free of charge</span></li>
+        <li><span data-l="el">Βρεφική κούνια δωρεάν</span><span data-l="en">Baby cot free on request</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="photos" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow"><span data-l="el">Φωτογραφίες</span><span data-l="en">Photos</span></p>
+    <div class="gallery" id="gallery">
+      <button class="g-a" data-src="img/view-sun.jpg"><img src="img/view-sun.jpg" alt="Θέα στον κόλπο" loading="lazy"></button>
+      <button class="g-b" data-src="img/bedroom.jpg"><img src="img/bedroom.jpg" alt="Υπνοδωμάτιο" loading="lazy"></button>
+      <button class="g-c" data-src="img/kitchen.jpg"><img src="img/kitchen.jpg" alt="Κουζίνα" loading="lazy"></button>
+      <button class="g-c" data-src="img/beams.jpg"><img src="img/beams.jpg" alt="Ξύλινα δοκάρια της οροφής" loading="lazy"></button>
+      <button class="g-c" data-src="img/bathroom.jpg"><img src="img/bathroom.jpg" alt="Μπάνιο" loading="lazy"></button>
+      <button class="g-b" data-src="img/dining.jpg"><img src="img/dining.jpg" alt="Τραπεζαρία και σαλόνι" loading="lazy"></button>
+      <button class="g-a" data-src="img/view-dusk.jpg"><img src="img/view-dusk.jpg" alt="Το μπαλκόνι το σούρουπο" loading="lazy"></button>
+      <button class="g-c" data-src="img/bedroom-2.jpg"><img src="img/bedroom-2.jpg" alt="Δεύτερο υπνοδωμάτιο" loading="lazy"></button>
+      <button class="g-c" data-src="img/living-sofa.jpg"><img src="img/living-sofa.jpg" alt="Σαλόνι" loading="lazy"></button>
+      <button class="g-c" data-src="img/exterior.jpg"><img src="img/exterior.jpg" alt="Η είσοδος του διαμερίσματος" loading="lazy"></button>
+      <button class="g-a" data-src="img/night.jpg"><img src="img/night.jpg" alt="Το κτίριο τη νύχτα" loading="lazy"></button>
+      <button class="g-b" data-src="img/bedroom-curtain.jpg"><img src="img/bedroom-curtain.jpg" alt="Παράθυρο με θέα θάλασσα" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="estate">
+  <div class="wrap split rev">
+    <div class="text">
+      <p class="eyebrow"><span data-l="el">Το κτήμα</span><span data-l="en">The estate</span></p>
+      <h2><span data-l="el">Οι γείτονές σας έχουν φτερά</span><span data-l="en">Your neighbours have feathers</span></h2>
+      <p><span data-l="el">Το κτήμα είναι κλειστό, με μεγάλους ελεύθερους χώρους και κήπο. Τα παγόνια και οι χήνες κυκλοφορούν ελεύθερα, και τα παιδιά δεν τα ξεχνούν ποτέ. Είναι το μοναδικό κατάλυμα στην πλευρά του δάσους του Γαλαξιδίου: ησυχία το βράδυ και η θάλασσα λίγα βήματα μακριά.</span><span data-l="en">The estate is gated, with wide open space and a garden. Peacocks and geese wander freely, and children never forget them. It is the only property on the forest side of Galaxidi: quiet at night, with the sea a short walk away.</span></p>
+    </div>
+    <div class="pair">
+      <figure class="photo"><img src="img/peacock.jpg" alt="Παγόνι με ανοιχτή ουρά μπροστά στα διαμερίσματα" loading="lazy"></figure>
+      <figure class="photo"><img src="img/sunset.jpg" alt="Ηλιοβασίλεμα πάνω από τον κόλπο" loading="lazy" style="aspect-ratio:3/4"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="location">
+  <div class="wrap split">
+    <figure class="photo"><img src="img/view-road.jpg" alt="Ο δρόμος προς τη θάλασσα με βουκαμβίλιες" loading="lazy"></figure>
+    <div class="text">
+      <p class="eyebrow"><span data-l="el">Η περιοχή</span><span data-l="en">The area</span></p>
+      <h2><span data-l="el">Ένα ναυτικό χωριό, οι Δελφοί στο βάθος</span><span data-l="en">A seafaring village, with Delphi up the road</span></h2>
+      <p><span data-l="el">Το Γαλαξίδι είναι χωριό καπεταναίων, με αρχοντικά, γραφικό λιμάνι και ταβέρνες πάνω στο νερό. Γύρω υπάρχουν μικρές παραλίες και κολπίσκοι για κολύμπι.</span><span data-l="en">Galaxidi is a village of sea captains, with old mansions, a picturesque harbour and tavernas on the water. Small beaches and coves for swimming are all around.</span></p>
+      <div class="chart">
+        <div class="row"><span><span data-l="el">Θάλασσα</span><span data-l="en">The sea</span></span><b><span data-l="el">λίγα βήματα</span><span data-l="en">a short walk</span></b></div>
+        <div class="row"><span><span data-l="el">Ταβέρνες, λιμάνι</span><span data-l="en">Tavernas, harbour</span></span><b>~700 μ.</b></div>
+        <div class="row"><span><span data-l="el">Δελφοί</span><span data-l="en">Delphi</span><small data-l="el">αρχαιολογικός χώρος και μουσείο</small><small data-l="en">archaeological site and museum</small></span><b>~35 χλμ</b></div>
+        <div class="row"><span><span data-l="el">Αθήνα</span><span data-l="en">Athens</span></span><b>220 χλμ</b></div>
+      </div>
+      <a href="https://www.google.com/maps?q=38.3750,22.3920" target="_blank" rel="noopener"><span data-l="el">Άνοιγμα στον χάρτη ↗</span><span data-l="en">Open in Google Maps ↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="score"><b>9,6</b><span><span data-l="el">«Άριστο», από 53 κριτικές επισκεπτών στη Booking.com. Προσωπικό: 9,9.</span><span data-l="en">“Exceptional” from 53 guest reviews on Booking.com. Staff: 9.9.</span></span></div>
+    <div class="quotes">
+      <blockquote><p>«Υπέροχη θέα και τοποθεσία, μέσα στα δέντρα. Πεντακάθαρα.»</p><cite>Evangelia, Κύπρος · Booking.com</cite></blockquote>
+      <blockquote><p>“The location was pure bliss. The apartment is a full holiday home, perfect for family.”</p><cite>Konstantina, Austria · Booking.com</cite></blockquote>
+      <blockquote><p>“I liked the location being close to good swimming and slightly rural, having peacocks on the property.”</p><cite>Lisa, Australia · Booking.com</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="text">
+      <p class="eyebrow"><span data-l="el">Απευθείας κράτηση</span><span data-l="en">Book direct</span></p>
+      <h2><span data-l="el">Γράψτε μας απευθείας</span><span data-l="en">Talk to us directly</span></h2>
+      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το μήνυμα με WhatsApp, ή τηλεφωνήστε.</span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send the message on WhatsApp, or call.</span></p>
+      <div class="contact">
+        <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone">+30 698 906 0386</b><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
+        <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
+        <div><small><span data-l="el">Άφιξη / αναχώρηση</span><span data-l="en">Check-in / check-out</span></small><span>13:00–17:00 · <span data-l="el">έως</span><span data-l="en">by</span> 11:00</span></div>
+      </div>
+    </div>
+
+    <form id="req" novalidate>
+      <div class="field"><label for="f-in"><span data-l="el">Άφιξη</span><span data-l="en">Arrival</span></label><input id="f-in" type="date" required></div>
+      <div class="field"><label for="f-out"><span data-l="el">Αναχώρηση</span><span data-l="en">Departure</span></label><input id="f-out" type="date" required></div>
+      <div class="field"><label for="f-adults"><span data-l="el">Ενήλικες</span><span data-l="en">Adults</span></label><select id="f-adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+      <div class="field"><label for="f-kids"><span data-l="el">Παιδιά</span><span data-l="en">Children</span></label><select id="f-kids"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div class="field"><label for="f-units"><span data-l="el">Διαμερίσματα</span><span data-l="en">Apartments</span></label><select id="f-units"><option value="1" selected>1</option><option value="2">2</option></select></div>
+      <div class="field"><label for="f-name"><span data-l="el">Όνομα</span><span data-l="en">Your name</span></label><input id="f-name" type="text" autocomplete="name" required></div>
+      <div class="field full"><label for="f-msg"><span data-l="el">Μήνυμα (προαιρετικό)</span><span data-l="en">Message (optional)</span></label><textarea id="f-msg"></textarea></div>
+      <div class="form-actions">
+        <button class="btn" type="submit"><span data-l="el">Ετοιμάστε το μήνυμα</span><span data-l="en">Prepare message</span></button>
+        <span class="err" id="f-err" hidden></span>
+      </div>
+      <div class="result" id="f-result" hidden>
+        <pre id="f-text"></pre>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn" id="f-wa" href="#" target="_blank" rel="noopener"><span data-l="el">Αποστολή με WhatsApp</span><span data-l="en">Send on WhatsApp</span></a>
+          <button class="btn ghost" type="button" id="f-copy"><span data-l="el">Αντιγραφή κειμένου</span><span data-l="en">Copy text</span></button>
+        </div>
+        <small style="color:var(--ink-soft)"><span data-l="el">Αν δεν έχετε WhatsApp, αντιγράψτε το κείμενο και στείλτε το με Viber, SMS ή email.</span><span data-l="en">No WhatsApp? Copy the text and send it by Viber, SMS or email.</span></small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Windmill Apartments · <span data-l="el">Θέση Μύλος, 33052 Γαλαξίδι</span><span data-l="en">Mylos, 33052 Galaxidi, Greece</span></span>
+    <span><span data-l="el">ΑΜΑ</span><span data-l="en">Registry no. (AMA)</span> 00003553173 · 00003553189</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb" hidden><button type="button" id="lb-close"><span data-l="el">Κλείσιμο</span><span data-l="en">Close</span></button><img id="lb-img" alt=""></div>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('wm');
+  function setLang(l){
+    root.dataset.lang=l;
+    document.getElementById('lang-el').setAttribute('aria-pressed',l==='el');
+    document.getElementById('lang-en').setAttribute('aria-pressed',l==='en');
+    try{localStorage.setItem('wm-lang',l)}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem('wm-lang')}catch(e){}
+  setLang(saved||((navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en'));
+  document.getElementById('lang-el').onclick=function(){setLang('el')};
+  document.getElementById('lang-en').onclick=function(){setLang('en')};
+
+  // gallery lightbox
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+  document.getElementById('gallery').addEventListener('click',function(e){
+    var b=e.target.closest('button[data-src]'); if(!b) return;
+    lbImg.src=b.dataset.src; lbImg.alt=b.querySelector('img').alt; lb.hidden=false; document.getElementById('lb-close').focus();
+  });
+  function closeLb(){lb.hidden=true;lbImg.src=''}
+  document.getElementById('lb-close').onclick=closeLb;
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)closeLb()});
+
+  function copy(text,btn){
+    function done(){var o=btn.innerHTML;btn.textContent=root.dataset.lang==='el'?'Αντιγράφηκε':'Copied';setTimeout(function(){btn.innerHTML=o},1600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){})}
+  }
+  document.querySelectorAll('.copy').forEach(function(b){b.onclick=function(){copy(b.dataset.copy,b)}});
+
+  // today as the earliest date
+  var t=new Date(),iso=t.toISOString().slice(0,10);
+  document.getElementById('f-in').min=iso; document.getElementById('f-out').min=iso;
+  document.getElementById('f-in').addEventListener('change',function(){document.getElementById('f-out').min=this.value||iso});
+
+  function fmt(d){var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  document.getElementById('req').addEventListener('submit',function(e){
+    e.preventDefault();
+    var el=root.dataset.lang==='el',g=function(id){return document.getElementById(id).value.trim()};
+    var a=g('f-in'),d=g('f-out'),n=g('f-name'),err=document.getElementById('f-err');
+    var msg='';
+    if(!a||!d) msg=el?'Συμπληρώστε ημερομηνίες άφιξης και αναχώρησης.':'Please fill in arrival and departure dates.';
+    else if(d<=a) msg=el?'Η αναχώρηση πρέπει να είναι μετά την άφιξη.':'Departure must be after arrival.';
+    else if(!n) msg=el?'Γράψτε το όνομά σας.':'Please add your name.';
+    err.textContent=msg; err.hidden=!msg; if(msg) return;
+    var nights=Math.round((new Date(d)-new Date(a))/864e5),u=g('f-units'),k=g('f-kids'),ad=g('f-adults'),m=g('f-msg');
+    var txt=el
+      ? 'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.\nΆφιξη: '+fmt(a)+'\nΑναχώρηση: '+fmt(d)+' ('+nights+' νύχτες)\nΕνήλικες: '+ad+', παιδιά: '+k+'\nΔιαμερίσματα: '+u+(m?'\n\n'+m:'')+'\n\n'+n
+      : 'Hello, I am interested in Windmill Apartments.\nArrival: '+fmt(a)+'\nDeparture: '+fmt(d)+' ('+nights+' nights)\nAdults: '+ad+', children: '+k+'\nApartments: '+u+(m?'\n\n'+m:'')+'\n\n'+n;
+    document.getElementById('f-text').textContent=txt;
+    document.getElementById('f-wa').href='https://wa.me/306989060386?text='+encodeURIComponent(txt);
+    document.getElementById('f-result').hidden=false;
+    document.getElementById('f-copy').onclick=function(){copy(txt,this)};
+  });
+})();
+</script>
