@@ -103,7 +103,11 @@ section{padding-block:clamp(56px,9vw,110px)}
 .lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,16,20,.92);display:grid;place-items:center;padding:24px}
 .lightbox[hidden]{display:none}
 .lightbox img{max-width:100%;max-height:86vh;object-fit:contain}
-.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#13303A;border:0;border-radius:999px;padding:8px 14px;font:600 .9rem var(--body);cursor:pointer}
+.lightbox #lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#13303A;border:0;border-radius:999px;padding:8px 14px;font:600 .9rem var(--body);cursor:pointer}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:0;border-radius:999px;background:rgba(255,255,255,.88);color:#13303A;font:600 1.6rem/1 var(--body);cursor:pointer;display:grid;place-items:center}
+.lightbox #lb-prev{left:12px}
+.lightbox #lb-next{right:12px}
+.lightbox .lb-count{position:absolute;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#fff;font:500 .9rem var(--body);opacity:.8}
 
 /* estate band */
 .band{background:var(--ink);color:var(--wall)}
@@ -316,7 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   </div>
 </footer>
 
-<div class="lightbox" id="lb" hidden><button type="button" id="lb-close"><span data-l="el">Κλείσιμο</span><span data-l="en">Close</span></button><img id="lb-img" alt=""></div>
+<div class="lightbox" id="lb" hidden><button type="button" id="lb-close"><span data-l="el">Κλείσιμο</span><span data-l="en">Close</span></button><button type="button" class="lb-nav" id="lb-prev" aria-label="Previous">&#8249;</button><img id="lb-img" alt=""><button type="button" class="lb-nav" id="lb-next" aria-label="Next">&#8250;</button><div class="lb-count" id="lb-count"></div></div>
 </div>
 
 <script>
@@ -335,14 +339,34 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 
   // gallery lightbox
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+  var shots=[].slice.call(document.querySelectorAll('#gallery button[data-src]')),cur=0;
+  function show(i){
+    cur=(i+shots.length)%shots.length;
+    lbImg.src=shots[cur].dataset.src; lbImg.alt=shots[cur].querySelector('img').alt;
+    document.getElementById('lb-count').textContent=(cur+1)+' / '+shots.length;
+  }
   document.getElementById('gallery').addEventListener('click',function(e){
     var b=e.target.closest('button[data-src]'); if(!b) return;
-    lbImg.src=b.dataset.src; lbImg.alt=b.querySelector('img').alt; lb.hidden=false; document.getElementById('lb-close').focus();
+    show(shots.indexOf(b)); lb.hidden=false; document.getElementById('lb-close').focus();
   });
   function closeLb(){lb.hidden=true;lbImg.src=''}
   document.getElementById('lb-close').onclick=closeLb;
+  document.getElementById('lb-prev').onclick=function(){show(cur-1)};
+  document.getElementById('lb-next').onclick=function(){show(cur+1)};
   lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)closeLb()});
+  document.addEventListener('keydown',function(e){
+    if(lb.hidden) return;
+    if(e.key==='Escape')closeLb();
+    else if(e.key==='ArrowLeft')show(cur-1);
+    else if(e.key==='ArrowRight')show(cur+1);
+  });
+  // swipe on phones
+  var x0=null;
+  lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>40) show(dx<0?cur+1:cur-1);
+  });
 
   function copy(text,btn){
     function done(){var o=btn.innerHTML;btn.textContent=root.dataset.lang==='el'?'Αντιγράφηκε':'Copied';setTimeout(function(){btn.innerHTML=o},1600)}
