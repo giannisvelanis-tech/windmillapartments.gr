@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Windmill Apartments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,9 +158,27 @@ textarea{min-height:92px;resize:vertical}
 footer{padding-block:40px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
 
+/* phones: larger small print */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (max-width:600px){
+  body{font-size:18px}
+  .eyebrow{font-size:.85rem}
+  .lede{font-size:1.15rem}
+  .lang button{font-size:.95rem;padding:8px 14px}
+  .log span,.photo figcaption,.quotes cite,.row small,footer{font-size:.95rem}
+  .facts li{font-size:1.05rem}
+  label{font-size:.95rem}
+  input,select,textarea{font-size:1.05rem;padding:13px 14px}
+  .btn{font-size:1.05rem;padding:14px 22px}
+  .copy{font-size:.9rem;padding:8px 14px}
+  .err{font-size:1rem}
+  .result pre{font-size:1rem}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
+</head>
+<body>
 <div id="wm" data-lang="el">
 
 <header class="bar">
@@ -400,3 +423,5 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
   });
 })();
 </script>
+</body>
+</html>
