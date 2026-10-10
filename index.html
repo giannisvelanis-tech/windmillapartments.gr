@@ -101,6 +101,7 @@ section{padding-block:clamp(56px,9vw,110px)}
 .g-c{grid-column:span 4;aspect-ratio:1}
 @media (max-width:700px){.g-a,.g-b,.g-c{grid-column:span 6;aspect-ratio:1}}
 .lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,16,20,.92);display:grid;place-items:center;padding:24px}
+.lightbox[hidden]{display:none}
 .lightbox img{max-width:100%;max-height:86vh;object-fit:contain}
 .lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;color:#13303A;border:0;border-radius:999px;padding:8px 14px;font:600 .9rem var(--body);cursor:pointer}
 
