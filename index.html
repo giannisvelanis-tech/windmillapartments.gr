@@ -304,7 +304,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div class="text">
       <p class="eyebrow"><span data-l="el">Απευθείας κράτηση</span><span data-l="en">Book direct</span></p>
       <h2><span data-l="el">Γράψτε μας απευθείας</span><span data-l="en">Talk to us directly</span></h2>
-      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το μήνυμα με WhatsApp, ή τηλεφωνήστε.</span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send the message on WhatsApp, or call.</span></p>
+      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε.</span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send the message on WhatsApp, or call.</span></p>
       <div class="contact">
         <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone">+30 698 906 0386</b><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
         <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
@@ -330,10 +330,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         <p id="f-ok" style="margin:0;font-weight:600"></p>
         <pre id="f-text"></pre>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <a class="btn" id="f-wa" href="#" target="_blank" rel="noopener"><span data-l="el">Αποστολή με WhatsApp</span><span data-l="en">Send on WhatsApp</span></a>
           <button class="btn ghost" type="button" id="f-copy"><span data-l="el">Αντιγραφή κειμένου</span><span data-l="en">Copy text</span></button>
         </div>
-        <small style="color:var(--ink-soft)"><span data-l="el">Αν θέλετε, στείλτε το και με WhatsApp για ταχύτερη απάντηση.</span><span data-l="en">If you like, also send it on WhatsApp for a faster reply.</span></small>
       </div>
     </form>
   </div>
@@ -421,7 +419,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       ? 'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.\nΆφιξη: '+fmt(a)+'\nΑναχώρηση: '+fmt(d)+' ('+nights+' νύχτες)\nΕνήλικες: '+ad+', παιδιά: '+k+'\nΔιαμερίσματα: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nΤηλ.: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'')
       : 'Hello, I am interested in Windmill Apartments.\nArrival: '+fmt(a)+'\nDeparture: '+fmt(d)+' ('+nights+' nights)\nAdults: '+ad+', children: '+k+'\nApartments: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nPhone: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'');
     document.getElementById('f-text').textContent=txt;
-    document.getElementById('f-wa').href='https://wa.me/306989060386?text='+encodeURIComponent(txt);
     document.getElementById('f-result').hidden=false;
     document.getElementById('f-copy').onclick=function(){copy(txt,this)};
     var ok=document.getElementById('f-ok'),sb=document.getElementById('f-send');
@@ -433,7 +430,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         if(!j.success) throw 0;
         ok.textContent=el?'✓ Το αίτημά σας στάλθηκε. Θα σας απαντήσουμε σύντομα.':'✓ Your request has been sent. We will reply shortly.';
       }).catch(function(){
-        ok.textContent=el?'Η αυτόματη αποστολή δεν πέτυχε — στείλτε το με WhatsApp ή τηλεφωνήστε.':'Automatic sending failed — please send it on WhatsApp or call.';
+        ok.textContent=el?'Η αποστολή δεν πέτυχε — αντιγράψτε το κείμενο και στείλτε το στο +30 698 906 0386 (WhatsApp/Viber) ή τηλεφωνήστε.':'Sending failed — copy the text and send it to +30 698 906 0386 (WhatsApp/Viber) or call.';
       }).then(function(){sb.disabled=false});
   });
 })();
