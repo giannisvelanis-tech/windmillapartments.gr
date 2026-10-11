@@ -404,8 +404,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   document.getElementById('f-in').addEventListener('change',function(){document.getElementById('f-out').min=this.value||iso});
 
   function fmt(d){var p=d.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+  var sent=false;
   document.getElementById('req').addEventListener('submit',function(e){
     e.preventDefault();
+    if(sent||document.getElementById('f-send').disabled) return;
     var el=root.dataset.lang==='el',g=function(id){return document.getElementById(id).value.trim()};
     var a=g('f-in'),d=g('f-out'),n=g('f-name'),err=document.getElementById('f-err');
     var msg='';
@@ -429,9 +431,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       .then(function(r){return r.json()}).then(function(j){
         if(!j.success) throw 0;
         ok.textContent=el?'✓ Το αίτημά σας στάλθηκε. Θα σας απαντήσουμε σύντομα.':'✓ Your request has been sent. We will reply shortly.';
+        var f=document.getElementById('req'); f.reset();
+        f.querySelectorAll('.field,.form-actions').forEach(function(x){x.hidden=true});
+        document.getElementById('f-copy').hidden=true;
+        sent=true;
       }).catch(function(){
         ok.textContent=el?'Η αποστολή δεν πέτυχε — αντιγράψτε το κείμενο και στείλτε το στο +30 698 906 0386 (WhatsApp/Viber) ή τηλεφωνήστε.':'Sending failed — copy the text and send it to +30 698 906 0386 (WhatsApp/Viber) or call.';
-      }).then(function(){sb.disabled=false});
+      }).then(function(){if(!sent) sb.disabled=false});
   });
 })();
 </script>
