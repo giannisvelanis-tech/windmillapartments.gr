@@ -319,18 +319,21 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <div class="field"><label for="f-kids"><span data-l="el">Παιδιά</span><span data-l="en">Children</span></label><select id="f-kids"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
       <div class="field"><label for="f-units"><span data-l="el">Διαμερίσματα</span><span data-l="en">Apartments</span></label><select id="f-units"><option value="1" selected>1</option><option value="2">2</option></select></div>
       <div class="field"><label for="f-name"><span data-l="el">Όνομα</span><span data-l="en">Your name</span></label><input id="f-name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-phone"><span data-l="el">Τηλέφωνο</span><span data-l="en">Phone</span></label><input id="f-phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="f-email"><span data-l="el">Email (προαιρετικό)</span><span data-l="en">Email (optional)</span></label><input id="f-email" type="email" autocomplete="email"></div>
       <div class="field full"><label for="f-msg"><span data-l="el">Μήνυμα (προαιρετικό)</span><span data-l="en">Message (optional)</span></label><textarea id="f-msg"></textarea></div>
       <div class="form-actions">
-        <button class="btn" type="submit"><span data-l="el">Ετοιμάστε το μήνυμα</span><span data-l="en">Prepare message</span></button>
+        <button class="btn" type="submit" id="f-send"><span data-l="el">Αποστολή αιτήματος</span><span data-l="en">Send request</span></button>
         <span class="err" id="f-err" hidden></span>
       </div>
       <div class="result" id="f-result" hidden>
+        <p id="f-ok" style="margin:0;font-weight:600"></p>
         <pre id="f-text"></pre>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
           <a class="btn" id="f-wa" href="#" target="_blank" rel="noopener"><span data-l="el">Αποστολή με WhatsApp</span><span data-l="en">Send on WhatsApp</span></a>
           <button class="btn ghost" type="button" id="f-copy"><span data-l="el">Αντιγραφή κειμένου</span><span data-l="en">Copy text</span></button>
         </div>
-        <small style="color:var(--ink-soft)"><span data-l="el">Αν δεν έχετε WhatsApp, αντιγράψτε το κείμενο και στείλτε το με Viber, SMS ή email.</span><span data-l="en">No WhatsApp? Copy the text and send it by Viber, SMS or email.</span></small>
+        <small style="color:var(--ink-soft)"><span data-l="el">Αν θέλετε, στείλτε το και με WhatsApp για ταχύτερη απάντηση.</span><span data-l="en">If you like, also send it on WhatsApp for a faster reply.</span></small>
       </div>
     </form>
   </div>
@@ -411,15 +414,27 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     if(!a||!d) msg=el?'Συμπληρώστε ημερομηνίες άφιξης και αναχώρησης.':'Please fill in arrival and departure dates.';
     else if(d<=a) msg=el?'Η αναχώρηση πρέπει να είναι μετά την άφιξη.':'Departure must be after arrival.';
     else if(!n) msg=el?'Γράψτε το όνομά σας.':'Please add your name.';
+    else if(!g('f-phone')) msg=el?'Γράψτε ένα τηλέφωνο επικοινωνίας.':'Please add a phone number.';
     err.textContent=msg; err.hidden=!msg; if(msg) return;
     var nights=Math.round((new Date(d)-new Date(a))/864e5),u=g('f-units'),k=g('f-kids'),ad=g('f-adults'),m=g('f-msg');
     var txt=el
-      ? 'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.\nΆφιξη: '+fmt(a)+'\nΑναχώρηση: '+fmt(d)+' ('+nights+' νύχτες)\nΕνήλικες: '+ad+', παιδιά: '+k+'\nΔιαμερίσματα: '+u+(m?'\n\n'+m:'')+'\n\n'+n
-      : 'Hello, I am interested in Windmill Apartments.\nArrival: '+fmt(a)+'\nDeparture: '+fmt(d)+' ('+nights+' nights)\nAdults: '+ad+', children: '+k+'\nApartments: '+u+(m?'\n\n'+m:'')+'\n\n'+n;
+      ? 'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.\nΆφιξη: '+fmt(a)+'\nΑναχώρηση: '+fmt(d)+' ('+nights+' νύχτες)\nΕνήλικες: '+ad+', παιδιά: '+k+'\nΔιαμερίσματα: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nΤηλ.: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'')
+      : 'Hello, I am interested in Windmill Apartments.\nArrival: '+fmt(a)+'\nDeparture: '+fmt(d)+' ('+nights+' nights)\nAdults: '+ad+', children: '+k+'\nApartments: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nPhone: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'');
     document.getElementById('f-text').textContent=txt;
     document.getElementById('f-wa').href='https://wa.me/306989060386?text='+encodeURIComponent(txt);
     document.getElementById('f-result').hidden=false;
     document.getElementById('f-copy').onclick=function(){copy(txt,this)};
+    var ok=document.getElementById('f-ok'),sb=document.getElementById('f-send');
+    ok.textContent=el?'Αποστολή…':'Sending…'; sb.disabled=true;
+    var data={access_key:'65e8808b-972e-4efc-a510-9fdb1b8d2247',subject:'Νέο αίτημα κράτησης: '+n+', '+fmt(a)+'–'+fmt(d),from_name:'windmillapartments.gr',
+      name:n,phone:g('f-phone'),email:g('f-email')||undefined,arrival:fmt(a),departure:fmt(d),nights:nights,adults:ad,children:k,apartments:u,message:txt};
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json()}).then(function(j){
+        if(!j.success) throw 0;
+        ok.textContent=el?'✓ Το αίτημά σας στάλθηκε. Θα σας απαντήσουμε σύντομα.':'✓ Your request has been sent. We will reply shortly.';
+      }).catch(function(){
+        ok.textContent=el?'Η αυτόματη αποστολή δεν πέτυχε — στείλτε το με WhatsApp ή τηλεφωνήστε.':'Automatic sending failed — please send it on WhatsApp or call.';
+      }).then(function(){sb.disabled=false});
   });
 })();
 </script>
