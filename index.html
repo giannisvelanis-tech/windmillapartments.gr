@@ -435,6 +435,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         f.querySelectorAll('.field,.form-actions').forEach(function(x){x.hidden=true});
         document.getElementById('f-copy').hidden=true;
         sent=true;
+        ok.scrollIntoView({behavior:'smooth',block:'center'});
+        setTimeout(function(){window.scrollTo({top:0,behavior:'smooth'})},3000);
       }).catch(function(){
         ok.textContent=el?'Η αποστολή δεν πέτυχε — αντιγράψτε το κείμενο και στείλτε το στο +30 698 906 0386 (WhatsApp/Viber) ή τηλεφωνήστε.':'Sending failed — copy the text and send it to +30 698 906 0386 (WhatsApp/Viber) or call.';
       }).then(function(){if(!sent) sb.disabled=false});
