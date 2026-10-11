@@ -412,6 +412,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     var a=g('f-in'),d=g('f-out'),n=g('f-name'),err=document.getElementById('f-err');
     var msg='';
     if(!a||!d) msg=el?'Συμπληρώστε ημερομηνίες άφιξης και αναχώρησης.':'Please fill in arrival and departure dates.';
+    else if(a<iso) msg=el?'Η ημερομηνία άφιξης έχει περάσει.':'The arrival date is in the past.';
     else if(d<=a) msg=el?'Η αναχώρηση πρέπει να είναι μετά την άφιξη.':'Departure must be after arrival.';
     else if(!n) msg=el?'Γράψτε το όνομά σας.':'Please add your name.';
     else if(!g('f-phone')) msg=el?'Γράψτε ένα τηλέφωνο επικοινωνίας.':'Please add a phone number.';
