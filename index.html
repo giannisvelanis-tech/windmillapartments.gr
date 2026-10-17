@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Windmill Apartments Galaxidi – Διαμερίσματα με θέα θάλασσα στο Γαλαξίδι, κοντά στους Δελφούς</title>
-<meta name="description" content="Δύο ευρύχωρα διαμερίσματα 2 υπνοδωματίων με θέα στον κόλπο του Γαλαξιδίου, έως 6 άτομα, δωρεάν πάρκινγκ, κατοικίδια ευπρόσδεκτα. Κοντά στους Δελφούς και την Αράχοβα. Κράτηση απευθείας. · Sea-view holiday apartments in Galaxidi, near Delphi.">
+<meta name="description" content="Δύο ευρύχωρα διαμερίσματα 2 υπνοδωματίων με θέα στον κόλπο του Γαλαξιδίου, έως 6 άτομα, δωρεάν πάρκινγκ, κατοικίδια ευπρόσδεκτα. Κοντά στους Δελφούς και στο χιονοδρομικό Παρνασσού. Κράτηση απευθείας. · Sea-view holiday apartments in Galaxidi, near Delphi.">
 <meta name="google-site-verification" content="gCp_GEIfgFbgutkH0zKCa2S3cXvNNv9tUR2pKHwvBTY" />
 <link rel="canonical" href="http://windmillapartments.gr/">
 <meta property="og:type" content="website">
@@ -81,6 +81,13 @@ p{margin:0}
 .bar .btn{padding:8px 16px}
 @media (max-width:520px){.bar .btn{display:none}}
 
+/* winter offer banner */
+.offer{background:var(--peacock);color:var(--peacock-ink)}
+.offer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 14px;min-height:46px;padding-block:8px;text-align:center}
+.offer b{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1}
+.offer a{color:inherit;font-weight:600;text-underline-offset:3px}
+.offer-note{font-size:.88rem;color:var(--ink-soft);border-left:3px solid var(--peacock);padding-left:12px}
+
 /* hero */
 .hero{position:relative}
 .hero img{display:block;width:100%;height:clamp(360px,62vw,680px);object-fit:cover}
@@ -125,6 +132,7 @@ section{padding-block:clamp(56px,9vw,110px)}
 .g-b{grid-column:span 5;aspect-ratio:5/5}
 .g-c{grid-column:span 4;aspect-ratio:1}
 @media (max-width:700px){.g-a,.g-b,.g-c{grid-column:span 6;aspect-ratio:1}}
+@media (max-width:700px){#winter-gallery .g-c{grid-column:span 4}}
 .lightbox{position:fixed;inset:0;z-index:50;background:rgba(6,16,20,.92);display:grid;place-items:center;padding:24px}
 .lightbox[hidden]{display:none}
 .lightbox img{max-width:100%;max-height:86vh;object-fit:contain}
@@ -212,16 +220,26 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   </div>
 </header>
 
+<div class="offer" role="note">
+  <div class="wrap">
+    <span><span data-l="el">Χειμερινή προσφορά</span><span data-l="en">Winter offer</span></span>
+    <span><b>120 €</b></span>
+    <span><span data-l="el">/ βράδυ, ολόκληρο διαμέρισμα, από 2 βράδια · απευθείας κράτηση</span><span data-l="en">/ night, whole apartment, 2 nights minimum · book direct</span></span>
+    <a href="#book"><span data-l="el">Κράτηση →</span><span data-l="en">Book →</span></a>
+  </div>
+</div>
+
 <div class="hero" id="top">
-  <img src="img/hero-balcony.jpg" alt="Θέα από το μπαλκόνι προς τον κόλπο του Γαλαξιδίου">
+  <img src="img/winter-hero.jpg" alt="Θέα από το μπαλκόνι προς τον κόλπο του Γαλαξιδίου, Φεβρουάριος">
 </div>
 <div class="hero-panel">
   <div class="hero-card">
-    <p class="eyebrow"><span data-l="el">Γαλαξίδι · Φωκίδα</span><span data-l="en">Galaxidi · Greece</span></p>
-    <h1><span data-l="el">Στην άκρη του δάσους, <em>δίπλα στη θάλασσα</em></span><span data-l="en">On the edge of the forest, <em>by the sea</em></span></h1>
-    <p class="lede"><span data-l="el">Δύο ανεξάρτητα διαμερίσματα σε κλειστό, ιδιωτικό κτήμα, με μπαλκόνι πάνω από τον κόλπο και παγόνια στην αυλή.</span><span data-l="en">Two independent apartments on a private, gated estate, with balconies over the gulf and peacocks in the garden.</span></p>
+    <p class="eyebrow"><span data-l="el">Γαλαξίδι · Χειμώνας</span><span data-l="en">Galaxidi · Winter</span></p>
+    <h1><span data-l="el">Χειμώνας με θέα <em>στον κόλπο</em></span><span data-l="en">Winter, with a view <em>of the gulf</em></span></h1>
+    <p class="lede"><span data-l="el">Δύο ανεξάρτητα διαμερίσματα σε κλειστό, ιδιωτικό κτήμα, με μπαλκόνι πάνω από τον κόλπο και τον χιονισμένο Παρνασσό στον ορίζοντα. Βάση για σκι στην Αράχοβα και για τους Δελφούς.</span><span data-l="en">Two independent apartments on a private, gated estate, with balconies over the gulf and snow-capped Parnassos on the horizon. A base for skiing at Arachova and for Delphi.</span></p>
     <div class="hero-actions">
       <a class="btn" href="#book"><span data-l="el">Ζητήστε διαθεσιμότητα</span><span data-l="en">Check availability</span></a>
+      <a class="btn ghost" href="#winter"><span data-l="el">Ο χειμώνας εδώ</span><span data-l="en">Winter here</span></a>
       <a class="btn ghost" href="#photos"><span data-l="el">Φωτογραφίες</span><span data-l="en">Photos</span></a>
     </div>
   </div>
@@ -236,6 +254,32 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div><b><span data-l="el">9,6</span><span data-l="en">9.6</span></b><span data-l="el">53 κριτικές στη Booking</span><span data-l="en">53 Booking.com reviews</span></div>
   </div>
 </div>
+
+<section id="winter" style="padding-bottom:0">
+  <div class="wrap split">
+    <div class="text">
+      <p class="eyebrow"><span data-l="el">Χειμώνας στο Γαλαξίδι</span><span data-l="en">Winter in Galaxidi</span></p>
+      <h2><span data-l="el">Χιόνι στα βουνά, ησυχία στον κόλπο</span><span data-l="en">Snow on the mountains, calm on the gulf</span></h2>
+      <p><span data-l="el">Τον χειμώνα το Γαλαξίδι ησυχάζει. Τα πρωινά είναι συχνά ηλιόλουστα, ο Παρνασσός ασπρίζει απέναντι, και κάποιες χρονιές το χιόνι φτάνει ως τις λεμονιές του κτήματος. Ανεβείτε για σκι στο χιονοδρομικό ή για καφέ στην Αράχοβα, δείτε τους Δελφούς χωρίς πλήθος, και το βράδυ γυρίστε σπίτι με θέα στη θάλασσα.</span><span data-l="en">In winter Galaxidi grows quiet. Mornings are often sunny, Parnassos turns white across the water, and some years the snow reaches the lemon trees on the estate. Drive up to ski or for coffee in Arachova, see Delphi without the crowds, and come home in the evening to a view of the sea.</span></p>
+      <ul class="facts">
+        <li><span data-l="el">Χιονοδρομικό Παρνασσού ~45 λεπτά</span><span data-l="en">Parnassos ski centre ~45 min</span></li>
+        <li><span data-l="el">Δελφοί ~35 χλμ</span><span data-l="en">Delphi ~35 km</span></li>
+        <li><span data-l="el">Καθαρά Δευτέρα: αλευρομουτζούρωμα</span><span data-l="en">Clean Monday: the flour war</span></li>
+        <li><span data-l="el">Δύο διαμερίσματα για παρέες σκι</span><span data-l="en">Two apartments for ski groups</span></li>
+      </ul>
+      <p class="offer-note"><span data-l="el"><b>120 € τη βραδιά</b> για ολόκληρο το διαμέρισμα (έως 6 άτομα), από 2 βράδια, όταν κλείνετε απευθείας μαζί μας (τηλέφωνο ή φόρμα). Όλα περιλαμβάνονται.</span><span data-l="en"><b>€120 a night</b> for the whole apartment (up to 6 guests), 2 nights minimum, when you book directly with us (phone or form). Everything included.</span></p>
+      <div class="hero-actions"><a class="btn" href="#book"><span data-l="el">Ρωτήστε για τον χειμώνα</span><span data-l="en">Ask about winter dates</span></a></div>
+    </div>
+    <figure class="photo"><img src="img/winter-parnassos.jpg" alt="Χιονισμένα βουνά απέναντι από τον κόλπο του Γαλαξιδίου" loading="lazy" style="aspect-ratio:15/16"></figure>
+  </div>
+  <div class="wrap">
+    <div class="gallery" id="winter-gallery">
+      <button class="g-c" data-src="img/winter-lemon.jpg"><img src="img/winter-lemon.jpg" alt="Χιονισμένη λεμονιά με θέα στον κόλπο" loading="lazy"></button>
+      <button class="g-c" data-src="img/winter-rose.jpg"><img src="img/winter-rose.jpg" alt="Τριαντάφυλλο στο χιόνι, στον κήπο του κτήματος" loading="lazy"></button>
+      <button class="g-c" data-src="img/winter-dusk.jpg"><img src="img/winter-dusk.jpg" alt="Σούρουπο πάνω από τον κόλπο" loading="lazy"></button>
+    </div>
+  </div>
+</section>
 
 <section id="apartments">
   <div class="wrap split">
@@ -325,7 +369,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <div class="text">
       <p class="eyebrow"><span data-l="el">Απευθείας κράτηση</span><span data-l="en">Book direct</span></p>
       <h2><span data-l="el">Γράψτε μας απευθείας</span><span data-l="en">Talk to us directly</span></h2>
-      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε.</span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send your request, or call.</span></p>
+      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε. <b>Χειμερινή προσφορά: 120 € τη βραδιά, από 2 βράδια, όλα μέσα.</b></span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send your request, or call. <b>Winter offer: €120 a night, 2 nights minimum, everything included.</b></span></p>
       <div class="contact">
         <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone">+30 698 906 0386</b><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
         <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
@@ -384,16 +428,16 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
   // gallery lightbox
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
-  var shots=[].slice.call(document.querySelectorAll('#gallery button[data-src]')),cur=0;
+  var shots=[].slice.call(document.querySelectorAll('.gallery button[data-src]')),cur=0;
   function show(i){
     cur=(i+shots.length)%shots.length;
     lbImg.src=shots[cur].dataset.src; lbImg.alt=shots[cur].querySelector('img').alt;
     document.getElementById('lb-count').textContent=(cur+1)+' / '+shots.length;
   }
-  document.getElementById('gallery').addEventListener('click',function(e){
+  document.querySelectorAll('.gallery').forEach(function(g){g.addEventListener('click',function(e){
     var b=e.target.closest('button[data-src]'); if(!b) return;
     show(shots.indexOf(b)); lb.hidden=false; document.getElementById('lb-close').focus();
-  });
+  })});
   function closeLb(){lb.hidden=true;lbImg.src=''}
   document.getElementById('lb-close').onclick=closeLb;
   document.getElementById('lb-prev').onclick=function(){show(cur-1)};
