@@ -181,7 +181,12 @@ textarea{min-height:92px;resize:vertical}
 .contact div{display:grid;gap:2px}
 .contact b{font-family:var(--display);font-weight:400;font-size:1.45rem;user-select:all}
 .contact small{color:var(--ink-soft)}
-.copy{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;font:500 .78rem var(--body);cursor:pointer;justify-self:start}
+.copy{background:none;border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:4px 12px;font:500 .78rem var(--body);cursor:pointer;justify-self:start;text-decoration:none;display:inline-block}
+.contact a.tel{color:inherit;text-decoration:none}
+.contact .acts{display:flex;flex-wrap:wrap;gap:8px}
+.score-g{margin-top:10px}
+.score-g b{font-size:clamp(2.4rem,5vw,3.2rem)}
+.score-g a{color:inherit}
 
 footer{padding-block:40px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
@@ -356,6 +361,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section id="reviews" style="padding-top:0">
   <div class="wrap">
     <div class="score"><b><span data-l="el">9,6</span><span data-l="en">9.6</span></b><span><span data-l="el">«Άριστο», από 53 κριτικές επισκεπτών στη Booking.com. Προσωπικό: 9,9.</span><span data-l="en">“Exceptional” from 53 guest reviews on Booking.com. Staff: 9.9.</span></span></div>
+    <div class="score score-g"><b><span data-l="el">5,0</span><span data-l="en">5.0</span></b><span><span data-l="el">★★★★★ από 10 κριτικές στο Google. <a href="https://www.google.com/maps/search/?api=1&amp;query=Windmill%20Apartments%20Galaxidi" target="_blank" rel="noopener">Δείτε τις στο Google Maps ↗</a></span><span data-l="en">★★★★★ from 10 Google reviews. <a href="https://www.google.com/maps/search/?api=1&amp;query=Windmill%20Apartments%20Galaxidi" target="_blank" rel="noopener">Read them on Google Maps ↗</a></span></span></div>
     <div class="quotes">
       <blockquote><p data-l="el">«Υπέροχη θέα και τοποθεσία, μέσα στα δέντρα. Πεντακάθαρα.»</p><p data-l="en">“Wonderful view and location, among the trees. Spotlessly clean.”</p><cite><span data-l="el">Ευαγγελία, Κύπρος</span><span data-l="en">Evangelia, Cyprus</span> · Booking.com</cite></blockquote>
       <blockquote><p data-l="el">«Η τοποθεσία ήταν σκέτη ευτυχία. Το διαμέρισμα είναι ολόκληρο εξοχικό σπίτι, ιδανικό για οικογένεια.»</p><p data-l="en">“The location was pure bliss. The apartment is a full holiday home, perfect for family.”</p><cite><span data-l="el">Κωνσταντίνα, Αυστρία</span><span data-l="en">Konstantina, Austria</span> · Booking.com</cite></blockquote>
@@ -371,7 +377,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <h2><span data-l="el">Γράψτε μας απευθείας</span><span data-l="en">Talk to us directly</span></h2>
       <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε. <b>Χειμερινή προσφορά: 120 € τη βραδιά, από 2 βράδια, όλα μέσα.</b></span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send your request, or call. <b>Winter offer: €120 a night, 2 nights minimum, everything included.</b></span></p>
       <div class="contact">
-        <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone">+30 698 906 0386</b><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
+        <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone"><a class="tel" href="tel:+306989060386">+30 698 906 0386</a></b><span class="acts"><a class="copy" href="tel:+306989060386"><span data-l="el">Κλήση</span><span data-l="en">Call</span></a><a class="copy" href="https://wa.me/306989060386" target="_blank" rel="noopener">WhatsApp</a><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></span></div>
         <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
         <div><small><span data-l="el">Άφιξη / αναχώρηση</span><span data-l="en">Check-in / check-out</span></small><span>13:00–17:00 · <span data-l="el">έως</span><span data-l="en">by</span> 11:00</span></div>
       </div>
