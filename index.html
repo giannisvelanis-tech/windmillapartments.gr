@@ -4,11 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Windmill Apartments Galaxidi – Διαμερίσματα με θέα θάλασσα στο Γαλαξίδι, κοντά στους Δελφούς</title>
-<meta name="description" content="Δύο ευρύχωρα διαμερίσματα 2 υπνοδωματίων με θέα στον κόλπο του Γαλαξιδίου, έως 6 άτομα, δωρεάν πάρκινγκ, κατοικίδια ευπρόσδεκτα. Κοντά στους Δελφούς και στο χιονοδρομικό Παρνασσού. Κράτηση απευθείας. · Sea-view holiday apartments in Galaxidi, near Delphi.">
+<meta name="description" content="Δύο ευρύχωρα διαμερίσματα 2 υπνοδωματίων με θέα στον κόλπο του Γαλαξιδίου, έως 6 άτομα, δωρεάν πάρκινγκ, κατοικίδια ευπρόσδεκτα. Κοντά στους Δελφούς και στο χιονοδρομικό Παρνασσού. Κράτηση απευθείας.">
 <meta name="google-site-verification" content="gCp_GEIfgFbgutkH0zKCa2S3cXvNNv9tUR2pKHwvBTY" />
 <link rel="canonical" href="https://windmillapartments.gr/">
+<link rel="alternate" hreflang="el" href="https://windmillapartments.gr/">
+<link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/">
+<link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/">
+<link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://windmillapartments.gr/">
+<meta property="og:locale" content="el_GR">
 <meta property="og:title" content="Windmill Apartments Galaxidi – Διαμερίσματα με θέα θάλασσα">
 <meta property="og:description" content="Δύο διαμερίσματα 2 υπνοδωματίων με θέα θάλασσα στο Γαλαξίδι, κοντά στους Δελφούς. Κράτηση απευθείας.">
 <meta property="og:image" content="https://windmillapartments.gr/img/hero-balcony.jpg">
@@ -59,7 +64,6 @@
 }
 *{box-sizing:border-box}
 body{background:var(--wall);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;font-weight:400}
-#wm[data-lang="el"] [data-l="en"],#wm[data-lang="en"] [data-l="el"]{display:none!important}
 a{color:var(--peacock)}
 :focus-visible{outline:2px solid var(--peacock);outline-offset:3px}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
@@ -74,8 +78,10 @@ p{margin:0}
 .bar .wrap{display:flex;align-items:center;gap:16px;min-height:58px}
 .brand{font-family:var(--display);font-size:1.3rem;margin-right:auto;text-decoration:none;color:var(--ink)}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.lang button{border:0;background:none;color:var(--ink-soft);font:500 .8rem var(--body);padding:6px 12px;cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--wall)}
+.lang a{border:0;background:none;color:var(--ink-soft);font:500 .8rem var(--body);padding:6px 12px;cursor:pointer;text-decoration:none}
+.lang a[aria-current="page"]{background:var(--ink);color:var(--wall)}
+.langhint{background:var(--ink);color:var(--wall);font-size:.9rem;text-align:center;padding:8px 16px}
+.langhint a{color:inherit;font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:8px;background:var(--peacock);color:var(--peacock-ink);border:0;border-radius:999px;padding:11px 20px;font:600 .92rem var(--body);text-decoration:none;cursor:pointer}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 .bar .btn{padding:8px 16px}
@@ -105,6 +111,7 @@ p{margin:0}
 .log div:first-child{border-left:0;padding-left:0}
 .log b{font-family:var(--display);font-weight:400;font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.1}
 .log span{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em}
+.log b span,.score b span{font-size:inherit!important;color:inherit;letter-spacing:0}
 @media (max-width:820px){.log .wrap{grid-template-columns:repeat(2,1fr)}.log div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.log div:first-child{grid-column:1/-1;border-top:0}}
 
 section{padding-block:clamp(56px,9vw,110px)}
@@ -197,7 +204,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{font-size:18px}
   .eyebrow{font-size:.85rem}
   .lede{font-size:1.15rem}
-  .lang button{font-size:.95rem;padding:8px 14px}
+  .lang a{font-size:.95rem;padding:8px 14px}
   .log span,.photo figcaption,.quotes cite,.row small,footer{font-size:.95rem}
   .facts li{font-size:1.05rem}
   label{font-size:.95rem}
@@ -217,89 +224,87 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="#top">Windmill Apartments</a>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" id="lang-el" aria-pressed="true">ΕΛ</button>
-      <button type="button" id="lang-en" aria-pressed="false">EN</button>
-    </div>
-    <a class="btn" href="#book"><span data-l="el">Κράτηση</span><span data-l="en">Book</span></a>
+    <nav class="lang" aria-label="Language"><a href="/" hreflang="el" lang="el" aria-current="page">ΕΛ</a><a href="/en/" hreflang="en" lang="en">EN</a><a href="/fr/" hreflang="fr" lang="fr">FR</a></nav>
+    <a class="btn" href="#book"><span>Κράτηση</span></a>
   </div>
 </header>
 
+<div class="langhint" id="langhint" hidden></div>
 <div class="offer" role="note">
   <div class="wrap">
-    <span><span data-l="el">Χειμερινή προσφορά</span><span data-l="en">Winter offer</span></span>
+    <span><span>Χειμερινή προσφορά</span></span>
     <span><b>120 €</b></span>
-    <span><span data-l="el">/ βράδυ, ολόκληρο διαμέρισμα, από 2 βράδια · απευθείας κράτηση</span><span data-l="en">/ night, whole apartment, 2 nights minimum · book direct</span></span>
-    <a href="#book"><span data-l="el">Κράτηση →</span><span data-l="en">Book →</span></a>
+    <span><span>/ βράδυ, ολόκληρο διαμέρισμα, από 2 βράδια · απευθείας κράτηση</span></span>
+    <a href="#book"><span>Κράτηση →</span></a>
   </div>
 </div>
 
 <div class="hero" id="top">
-  <img src="img/winter-hero.jpg" alt="Θέα από το μπαλκόνι προς τον κόλπο του Γαλαξιδίου, Φεβρουάριος">
+  <img src="/img/winter-hero.jpg" alt="Θέα από το μπαλκόνι προς τον κόλπο του Γαλαξιδίου, Φεβρουάριος">
 </div>
 <div class="hero-panel">
   <div class="hero-card">
-    <p class="eyebrow"><span data-l="el">Γαλαξίδι · Χειμώνας</span><span data-l="en">Galaxidi · Winter</span></p>
-    <h1><span data-l="el">Χειμώνας με θέα <em>στον κόλπο</em></span><span data-l="en">Winter, with a view <em>of the gulf</em></span></h1>
-    <p class="lede"><span data-l="el">Δύο ανεξάρτητα διαμερίσματα σε κλειστό, ιδιωτικό κτήμα, με μπαλκόνι πάνω από τον κόλπο και τον χιονισμένο Παρνασσό στον ορίζοντα. Βάση για σκι στην Αράχοβα και για τους Δελφούς.</span><span data-l="en">Two independent apartments on a private, gated estate, with balconies over the gulf and snow-capped Parnassos on the horizon. A base for skiing at Arachova and for Delphi.</span></p>
+    <p class="eyebrow"><span>Γαλαξίδι · Χειμώνας</span></p>
+    <h1><span>Χειμώνας με θέα <em>στον κόλπο</em></span></h1>
+    <p class="lede"><span>Δύο ανεξάρτητα διαμερίσματα σε κλειστό, ιδιωτικό κτήμα, με μπαλκόνι πάνω από τον κόλπο και τον χιονισμένο Παρνασσό στον ορίζοντα. Βάση για σκι στην Αράχοβα και για τους Δελφούς.</span></p>
     <div class="hero-actions">
-      <a class="btn" href="#book"><span data-l="el">Ζητήστε διαθεσιμότητα</span><span data-l="en">Check availability</span></a>
-      <a class="btn ghost" href="#winter"><span data-l="el">Ο χειμώνας εδώ</span><span data-l="en">Winter here</span></a>
-      <a class="btn ghost" href="#photos"><span data-l="el">Φωτογραφίες</span><span data-l="en">Photos</span></a>
+      <a class="btn" href="#book"><span>Ζητήστε διαθεσιμότητα</span></a>
+      <a class="btn ghost" href="#winter"><span>Ο χειμώνας εδώ</span></a>
+      <a class="btn ghost" href="#photos"><span>Φωτογραφίες</span></a>
     </div>
   </div>
 </div>
 
-<div class="log" aria-label="At a glance">
+<div class="log" aria-label="Με μια ματιά">
   <div class="wrap">
-    <div><b>38°22′N 22°23′E</b><span data-l="el">Γαλαξίδι, κόλπος της Ιτέας</span><span data-l="en">Galaxidi, Gulf of Itea</span></div>
-    <div><b>2</b><span data-l="el">ανεξάρτητα διαμερίσματα</span><span data-l="en">independent apartments</span></div>
-    <div><b>75 m²</b><span data-l="el">κάθε διαμέρισμα</span><span data-l="en">each apartment</span></div>
-    <div><b>6</b><span data-l="el">άτομα ανά διαμέρισμα</span><span data-l="en">guests per apartment</span></div>
-    <div><b><span data-l="el">9,6</span><span data-l="en">9.6</span></b><span data-l="el">53 κριτικές στη Booking</span><span data-l="en">53 Booking.com reviews</span></div>
+    <div><b>38°22′N 22°23′E</b><span>Γαλαξίδι, κόλπος της Ιτέας</span></div>
+    <div><b>2</b><span>ανεξάρτητα διαμερίσματα</span></div>
+    <div><b>75 m²</b><span>κάθε διαμέρισμα</span></div>
+    <div><b>6</b><span>άτομα ανά διαμέρισμα</span></div>
+    <div><b><span>9,6</span></b><span>56 κριτικές στη Booking</span></div>
   </div>
 </div>
 
 <section id="winter" style="padding-bottom:0">
   <div class="wrap split">
     <div class="text">
-      <p class="eyebrow"><span data-l="el">Χειμώνας στο Γαλαξίδι</span><span data-l="en">Winter in Galaxidi</span></p>
-      <h2><span data-l="el">Χιόνι στα βουνά, ησυχία στον κόλπο</span><span data-l="en">Snow on the mountains, calm on the gulf</span></h2>
-      <p><span data-l="el">Τον χειμώνα το Γαλαξίδι ησυχάζει. Τα πρωινά είναι συχνά ηλιόλουστα, ο Παρνασσός ασπρίζει απέναντι, και κάποιες χρονιές το χιόνι φτάνει ως τις λεμονιές του κτήματος. Ανεβείτε για σκι στο χιονοδρομικό ή για καφέ στην Αράχοβα, δείτε τους Δελφούς χωρίς πλήθος, και το βράδυ γυρίστε σπίτι με θέα στη θάλασσα.</span><span data-l="en">In winter Galaxidi grows quiet. Mornings are often sunny, Parnassos turns white across the water, and some years the snow reaches the lemon trees on the estate. Drive up to ski or for coffee in Arachova, see Delphi without the crowds, and come home in the evening to a view of the sea.</span></p>
+      <p class="eyebrow"><span>Χειμώνας στο Γαλαξίδι</span></p>
+      <h2><span>Χιόνι στα βουνά, ησυχία στον κόλπο</span></h2>
+      <p><span>Τον χειμώνα το Γαλαξίδι ησυχάζει. Τα πρωινά είναι συχνά ηλιόλουστα, ο Παρνασσός ασπρίζει απέναντι, και κάποιες χρονιές το χιόνι φτάνει ως τις λεμονιές του κτήματος. Ανεβείτε για σκι στο χιονοδρομικό ή για καφέ στην Αράχοβα, δείτε τους Δελφούς χωρίς πλήθος, και το βράδυ γυρίστε σπίτι με θέα στη θάλασσα.</span></p>
       <ul class="facts">
-        <li><span data-l="el">Χιονοδρομικό Παρνασσού ~45 λεπτά</span><span data-l="en">Parnassos ski centre ~45 min</span></li>
-        <li><span data-l="el">Δελφοί ~35 χλμ</span><span data-l="en">Delphi ~35 km</span></li>
-        <li><span data-l="el">Καθαρά Δευτέρα: αλευρομουτζούρωμα</span><span data-l="en">Clean Monday: the flour war</span></li>
-        <li><span data-l="el">Δύο διαμερίσματα για παρέες σκι</span><span data-l="en">Two apartments for ski groups</span></li>
+        <li><span>Χιονοδρομικό Παρνασσού ~45 λεπτά</span></li>
+        <li><span>Δελφοί ~35 χλμ</span></li>
+        <li><span>Καθαρά Δευτέρα: αλευρομουτζούρωμα</span></li>
+        <li><span>Δύο διαμερίσματα για παρέες σκι</span></li>
       </ul>
-      <p class="offer-note"><span data-l="el"><b>120 € τη βραδιά</b> για ολόκληρο το διαμέρισμα (έως 6 άτομα), από 2 βράδια, όταν κλείνετε απευθείας μαζί μας (τηλέφωνο ή φόρμα). Όλα περιλαμβάνονται.</span><span data-l="en"><b>€120 a night</b> for the whole apartment (up to 6 guests), 2 nights minimum, when you book directly with us (phone or form). Everything included.</span></p>
-      <div class="hero-actions"><a class="btn" href="#book"><span data-l="el">Ρωτήστε για τον χειμώνα</span><span data-l="en">Ask about winter dates</span></a></div>
+      <p class="offer-note"><span><b>120 € τη βραδιά</b> για ολόκληρο το διαμέρισμα (έως 6 άτομα), από 2 βράδια, όταν κλείνετε απευθείας μαζί μας (τηλέφωνο ή φόρμα). Όλα περιλαμβάνονται.</span></p>
+      <div class="hero-actions"><a class="btn" href="#book"><span>Ρωτήστε για τον χειμώνα</span></a></div>
     </div>
-    <figure class="photo"><img src="img/winter-parnassos.jpg" alt="Χιονισμένα βουνά απέναντι από τον κόλπο του Γαλαξιδίου" loading="lazy" style="aspect-ratio:15/16"></figure>
+    <figure class="photo"><img src="/img/winter-parnassos.jpg" alt="Χιονισμένα βουνά απέναντι από τον κόλπο του Γαλαξιδίου" loading="lazy" style="aspect-ratio:15/16"></figure>
   </div>
   <div class="wrap">
     <div class="gallery" id="winter-gallery">
-      <button class="g-c" data-src="img/winter-lemon.jpg"><img src="img/winter-lemon.jpg" alt="Χιονισμένη λεμονιά με θέα στον κόλπο" loading="lazy"></button>
-      <button class="g-c" data-src="img/winter-rose.jpg"><img src="img/winter-rose.jpg" alt="Τριαντάφυλλο στο χιόνι, στον κήπο του κτήματος" loading="lazy"></button>
-      <button class="g-c" data-src="img/winter-dusk.jpg"><img src="img/winter-dusk.jpg" alt="Σούρουπο πάνω από τον κόλπο" loading="lazy"></button>
+      <button class="g-c" data-src="/img/winter-lemon.jpg"><img src="/img/winter-lemon.jpg" alt="Χιονισμένη λεμονιά με θέα στον κόλπο" loading="lazy"></button>
+      <button class="g-c" data-src="/img/winter-rose.jpg"><img src="/img/winter-rose.jpg" alt="Τριαντάφυλλο στο χιόνι, στον κήπο του κτήματος" loading="lazy"></button>
+      <button class="g-c" data-src="/img/winter-dusk.jpg"><img src="/img/winter-dusk.jpg" alt="Σούρουπο πάνω από τον κόλπο" loading="lazy"></button>
     </div>
   </div>
 </section>
 
 <section id="apartments">
   <div class="wrap split">
-    <figure class="photo"><img src="img/living.jpg" alt="Σαλόνι με ξύλινα δοκάρια" loading="lazy"></figure>
+    <figure class="photo"><img src="/img/living.jpg" alt="Σαλόνι με ξύλινα δοκάρια" loading="lazy"></figure>
     <div class="text">
-      <p class="eyebrow"><span data-l="el">Τα διαμερίσματα</span><span data-l="en">The apartments</span></p>
-      <h2><span data-l="el">Δύο ίδια σπίτια, το καθένα δικό σας</span><span data-l="en">Two identical homes, each entirely yours</span></h2>
-      <p><span data-l="el">Κάθε διαμέρισμα έχει δική του είσοδο, 2 υπνοδωμάτια, σαλόνι με σκούρα ξύλινα δοκάρια, πλήρη κουζίνα και μπαλκόνι με θέα στη θάλασσα. Αν έρχεστε δύο οικογένειες, κλείστε και τα δύο.</span><span data-l="en">Each apartment has its own entrance, 2 bedrooms, a living room under dark timber beams, a full kitchen and a sea-view balcony. Travelling as two families? Book both.</span></p>
+      <p class="eyebrow"><span>Τα διαμερίσματα</span></p>
+      <h2><span>Δύο ίδια σπίτια, το καθένα δικό σας</span></h2>
+      <p><span>Κάθε διαμέρισμα έχει δική του είσοδο, 2 υπνοδωμάτια, σαλόνι με σκούρα ξύλινα δοκάρια, πλήρη κουζίνα και μπαλκόνι με θέα στη θάλασσα. Αν έρχεστε δύο οικογένειες, κλείστε και τα δύο.</span></p>
       <ul class="facts">
-        <li><span data-l="el">2 διπλά κρεβάτια + καναπές-κρεβάτι</span><span data-l="en">2 double beds + sofa bed</span></li>
-        <li><span data-l="el">Κουζίνα, πλυντήριο ρούχων</span><span data-l="en">Kitchen, washing machine</span></li>
-        <li><span data-l="el">Κλιματισμός, δωρεάν Wi-Fi</span><span data-l="en">Air conditioning, free Wi-Fi</span></li>
-        <li><span data-l="el">Δωρεάν πάρκινγκ στο κτήμα</span><span data-l="en">Free parking on the estate</span></li>
-        <li><span data-l="el">Κατοικίδια δεκτά, χωρίς χρέωση</span><span data-l="en">Pets welcome, free of charge</span></li>
-        <li><span data-l="el">Βρεφική κούνια δωρεάν</span><span data-l="en">Baby cot free on request</span></li>
+        <li><span>2 διπλά κρεβάτια + καναπές-κρεβάτι</span></li>
+        <li><span>Κουζίνα, πλυντήριο ρούχων</span></li>
+        <li><span>Κλιματισμός, δωρεάν Wi-Fi</span></li>
+        <li><span>Δωρεάν πάρκινγκ στο κτήμα</span></li>
+        <li><span>Κατοικίδια δεκτά, χωρίς χρέωση</span></li>
+        <li><span>Βρεφική κούνια δωρεάν</span></li>
       </ul>
     </div>
   </div>
@@ -307,20 +312,20 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <section id="photos" style="padding-top:0">
   <div class="wrap">
-    <p class="eyebrow"><span data-l="el">Φωτογραφίες</span><span data-l="en">Photos</span></p>
+    <p class="eyebrow"><span>Φωτογραφίες</span></p>
     <div class="gallery" id="gallery">
-      <button class="g-a" data-src="img/view-sun.jpg"><img src="img/view-sun.jpg" alt="Θέα στον κόλπο" loading="lazy"></button>
-      <button class="g-b" data-src="img/bedroom.jpg"><img src="img/bedroom.jpg" alt="Υπνοδωμάτιο" loading="lazy"></button>
-      <button class="g-c" data-src="img/kitchen.jpg"><img src="img/kitchen.jpg" alt="Κουζίνα" loading="lazy"></button>
-      <button class="g-c" data-src="img/beams.jpg"><img src="img/beams.jpg" alt="Ξύλινα δοκάρια της οροφής" loading="lazy"></button>
-      <button class="g-c" data-src="img/bathroom.jpg"><img src="img/bathroom.jpg" alt="Μπάνιο" loading="lazy"></button>
-      <button class="g-b" data-src="img/dining.jpg"><img src="img/dining.jpg" alt="Τραπεζαρία και σαλόνι" loading="lazy"></button>
-      <button class="g-a" data-src="img/view-dusk.jpg"><img src="img/view-dusk.jpg" alt="Το μπαλκόνι το σούρουπο" loading="lazy"></button>
-      <button class="g-c" data-src="img/bedroom-2.jpg"><img src="img/bedroom-2.jpg" alt="Δεύτερο υπνοδωμάτιο" loading="lazy"></button>
-      <button class="g-c" data-src="img/living-sofa.jpg"><img src="img/living-sofa.jpg" alt="Σαλόνι" loading="lazy"></button>
-      <button class="g-c" data-src="img/exterior.jpg"><img src="img/exterior.jpg" alt="Η είσοδος του διαμερίσματος" loading="lazy"></button>
-      <button class="g-a" data-src="img/night.jpg"><img src="img/night.jpg" alt="Το κτίριο τη νύχτα" loading="lazy"></button>
-      <button class="g-b" data-src="img/bedroom-curtain.jpg"><img src="img/bedroom-curtain.jpg" alt="Παράθυρο με θέα θάλασσα" loading="lazy"></button>
+      <button class="g-a" data-src="/img/view-sun.jpg"><img src="/img/view-sun.jpg" alt="Θέα στον κόλπο" loading="lazy"></button>
+      <button class="g-b" data-src="/img/bedroom.jpg"><img src="/img/bedroom.jpg" alt="Υπνοδωμάτιο" loading="lazy"></button>
+      <button class="g-c" data-src="/img/kitchen.jpg"><img src="/img/kitchen.jpg" alt="Κουζίνα" loading="lazy"></button>
+      <button class="g-c" data-src="/img/beams.jpg"><img src="/img/beams.jpg" alt="Ξύλινα δοκάρια της οροφής" loading="lazy"></button>
+      <button class="g-c" data-src="/img/bathroom.jpg"><img src="/img/bathroom.jpg" alt="Μπάνιο" loading="lazy"></button>
+      <button class="g-b" data-src="/img/dining.jpg"><img src="/img/dining.jpg" alt="Τραπεζαρία και σαλόνι" loading="lazy"></button>
+      <button class="g-a" data-src="/img/view-dusk.jpg"><img src="/img/view-dusk.jpg" alt="Το μπαλκόνι το σούρουπο" loading="lazy"></button>
+      <button class="g-c" data-src="/img/bedroom-2.jpg"><img src="/img/bedroom-2.jpg" alt="Δεύτερο υπνοδωμάτιο" loading="lazy"></button>
+      <button class="g-c" data-src="/img/living-sofa.jpg"><img src="/img/living-sofa.jpg" alt="Σαλόνι" loading="lazy"></button>
+      <button class="g-c" data-src="/img/exterior.jpg"><img src="/img/exterior.jpg" alt="Η είσοδος του διαμερίσματος" loading="lazy"></button>
+      <button class="g-a" data-src="/img/night.jpg"><img src="/img/night.jpg" alt="Το κτίριο τη νύχτα" loading="lazy"></button>
+      <button class="g-b" data-src="/img/bedroom-curtain.jpg"><img src="/img/bedroom-curtain.jpg" alt="Παράθυρο με θέα θάλασσα" loading="lazy"></button>
     </div>
   </div>
 </section>
@@ -328,44 +333,44 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section class="band" id="estate">
   <div class="wrap split rev">
     <div class="text">
-      <p class="eyebrow"><span data-l="el">Το κτήμα</span><span data-l="en">The estate</span></p>
-      <h2><span data-l="el">Οι γείτονές σας έχουν φτερά</span><span data-l="en">Your neighbours have feathers</span></h2>
-      <p><span data-l="el">Το κτήμα είναι κλειστό, με μεγάλους ελεύθερους χώρους και κήπο. Τα παγόνια και οι χήνες κυκλοφορούν ελεύθερα, και τα παιδιά δεν τα ξεχνούν ποτέ. Είναι το μοναδικό κατάλυμα στην πλευρά του δάσους του Γαλαξιδίου: ησυχία το βράδυ και η θάλασσα λίγα βήματα μακριά.</span><span data-l="en">The estate is gated, with wide open space and a garden. Peacocks and geese wander freely, and children never forget them. It is the only property on the forest side of Galaxidi: quiet at night, with the sea a short walk away.</span></p>
+      <p class="eyebrow"><span>Το κτήμα</span></p>
+      <h2><span>Οι γείτονές σας έχουν φτερά</span></h2>
+      <p><span>Το κτήμα είναι κλειστό, με μεγάλους ελεύθερους χώρους και κήπο. Τα παγόνια και οι χήνες κυκλοφορούν ελεύθερα, και τα παιδιά δεν τα ξεχνούν ποτέ. Είναι το μοναδικό κατάλυμα στην πλευρά του δάσους του Γαλαξιδίου: ησυχία το βράδυ και η θάλασσα λίγα βήματα μακριά.</span></p>
     </div>
     <div class="pair">
-      <figure class="photo"><img src="img/peacock.jpg" alt="Παγόνι με ανοιχτή ουρά μπροστά στα διαμερίσματα" loading="lazy"></figure>
-      <figure class="photo"><img src="img/sunset.jpg" alt="Ηλιοβασίλεμα πάνω από τον κόλπο" loading="lazy" style="aspect-ratio:3/4"></figure>
+      <figure class="photo"><img src="/img/peacock.jpg" alt="Παγόνι με ανοιχτή ουρά μπροστά στα διαμερίσματα" loading="lazy"></figure>
+      <figure class="photo"><img src="/img/sunset.jpg" alt="Ηλιοβασίλεμα πάνω από τον κόλπο" loading="lazy" style="aspect-ratio:3/4"></figure>
     </div>
   </div>
 </section>
 
 <section id="location">
   <div class="wrap split">
-    <figure class="photo"><img src="img/view-road.jpg" alt="Ο δρόμος προς τη θάλασσα με βουκαμβίλιες" loading="lazy"></figure>
+    <figure class="photo"><img src="/img/view-road.jpg" alt="Ο δρόμος προς τη θάλασσα με βουκαμβίλιες" loading="lazy"></figure>
     <div class="text">
-      <p class="eyebrow"><span data-l="el">Η περιοχή</span><span data-l="en">The area</span></p>
-      <h2><span data-l="el">Ένα ναυτικό χωριό, οι Δελφοί στο βάθος</span><span data-l="en">A seafaring village, with Delphi up the road</span></h2>
-      <p><span data-l="el">Το Γαλαξίδι είναι χωριό καπεταναίων, με αρχοντικά, γραφικό λιμάνι και ταβέρνες πάνω στο νερό. Γύρω υπάρχουν μικρές παραλίες και κολπίσκοι για κολύμπι. Τον χειμώνα είναι ιδανική βάση για τους Δελφούς και για σκι στον Παρνασσό και την Αράχοβα, και κάθε Καθαρά Δευτέρα γιορτάζεται εδώ το περίφημο αλευρομουτζούρωμα.</span><span data-l="en">Galaxidi is a village of sea captains, with old mansions, a picturesque harbour and tavernas on the water. Small beaches and coves for swimming are all around. In winter it is an ideal base for Delphi and for skiing on Mount Parnassos near Arachova, and every Clean Monday the village celebrates its famous flour war, the alevromoutzouroma.</span></p>
+      <p class="eyebrow"><span>Η περιοχή</span></p>
+      <h2><span>Ένα ναυτικό χωριό, οι Δελφοί στο βάθος</span></h2>
+      <p><span>Το Γαλαξίδι είναι χωριό καπεταναίων, με αρχοντικά, γραφικό λιμάνι και ταβέρνες πάνω στο νερό. Γύρω υπάρχουν μικρές παραλίες και κολπίσκοι για κολύμπι. Τον χειμώνα είναι ιδανική βάση για τους Δελφούς και για σκι στον Παρνασσό και την Αράχοβα, και κάθε Καθαρά Δευτέρα γιορτάζεται εδώ το περίφημο αλευρομουτζούρωμα.</span></p>
       <div class="chart">
-        <div class="row"><span><span data-l="el">Θάλασσα</span><span data-l="en">The sea</span></span><b><span data-l="el">λίγα βήματα</span><span data-l="en">a short walk</span></b></div>
-        <div class="row"><span><span data-l="el">Ταβέρνες, λιμάνι</span><span data-l="en">Tavernas, harbour</span></span><b><span data-l="el">~700 μ.</span><span data-l="en">~700 m</span></b></div>
-        <div class="row"><span><span data-l="el">Δελφοί</span><span data-l="en">Delphi</span><small data-l="el">αρχαιολογικός χώρος και μουσείο</small><small data-l="en">archaeological site and museum</small></span><b><span data-l="el">~35 χλμ</span><span data-l="en">~35 km</span></b></div>
-        <div class="row"><span><span data-l="el">Αράχοβα, χιονοδρομικό Παρνασσού</span><span data-l="en">Arachova, Parnassos ski centre</span></span><b><span data-l="el">~45 λεπτά</span><span data-l="en">~45 min</span></b></div>
-        <div class="row"><span><span data-l="el">Αθήνα</span><span data-l="en">Athens</span></span><b><span data-l="el">220 χλμ</span><span data-l="en">220 km</span></b></div>
+        <div class="row"><span><span>Θάλασσα</span></span><b><span>λίγα βήματα</span></b></div>
+        <div class="row"><span><span>Ταβέρνες, λιμάνι</span></span><b><span>~700 μ.</span></b></div>
+        <div class="row"><span><span>Δελφοί</span><small>αρχαιολογικός χώρος και μουσείο</small></span><b><span>~35 χλμ</span></b></div>
+        <div class="row"><span><span>Αράχοβα, χιονοδρομικό Παρνασσού</span></span><b><span>~45 λεπτά</span></b></div>
+        <div class="row"><span><span>Αθήνα</span></span><b><span>220 χλμ</span></b></div>
       </div>
-      <a href="https://www.google.com/maps?q=38.3750,22.3920" target="_blank" rel="noopener"><span data-l="el">Άνοιγμα στον χάρτη ↗</span><span data-l="en">Open in Google Maps ↗</span></a>
+      <a href="https://www.google.com/maps?q=38.3750,22.3920" target="_blank" rel="noopener"><span>Άνοιγμα στον χάρτη ↗</span></a>
     </div>
   </div>
 </section>
 
 <section id="reviews" style="padding-top:0">
   <div class="wrap">
-    <div class="score"><b><span data-l="el">9,6</span><span data-l="en">9.6</span></b><span><span data-l="el">«Άριστο», από 53 κριτικές επισκεπτών στη Booking.com. Προσωπικό: 9,9.</span><span data-l="en">“Exceptional” from 53 guest reviews on Booking.com. Staff: 9.9.</span></span></div>
-    <div class="score score-g"><b><span data-l="el">5,0</span><span data-l="en">5.0</span></b><span><span data-l="el">★★★★★ από 10 κριτικές στο Google. <a href="https://www.google.com/maps/search/?api=1&amp;query=Windmill%20Apartments%20Galaxidi" target="_blank" rel="noopener">Δείτε τις στο Google Maps ↗</a></span><span data-l="en">★★★★★ from 10 Google reviews. <a href="https://www.google.com/maps/search/?api=1&amp;query=Windmill%20Apartments%20Galaxidi" target="_blank" rel="noopener">Read them on Google Maps ↗</a></span></span></div>
+    <div class="score"><b><span>9,6</span></b><span><span>«Άριστο», από 56 κριτικές επισκεπτών στη Booking.com. Προσωπικό: 9,9.</span></span></div>
+    <div class="score score-g"><b><span>5,0</span></b><span><span>★★★★★ από 10 κριτικές στο Google. <a href="https://www.google.com/maps/search/?api=1&amp;query=Windmill%20Apartments%20Galaxidi" target="_blank" rel="noopener">Δείτε τις στο Google Maps ↗</a></span></span></div>
     <div class="quotes">
-      <blockquote><p data-l="el">«Υπέροχη θέα και τοποθεσία, μέσα στα δέντρα. Πεντακάθαρα.»</p><p data-l="en">“Wonderful view and location, among the trees. Spotlessly clean.”</p><cite><span data-l="el">Ευαγγελία, Κύπρος</span><span data-l="en">Evangelia, Cyprus</span> · Booking.com</cite></blockquote>
-      <blockquote><p data-l="el">«Η τοποθεσία ήταν σκέτη ευτυχία. Το διαμέρισμα είναι ολόκληρο εξοχικό σπίτι, ιδανικό για οικογένεια.»</p><p data-l="en">“The location was pure bliss. The apartment is a full holiday home, perfect for family.”</p><cite><span data-l="el">Κωνσταντίνα, Αυστρία</span><span data-l="en">Konstantina, Austria</span> · Booking.com</cite></blockquote>
-      <blockquote><p data-l="el">«Μου άρεσε που η τοποθεσία είναι κοντά σε ωραία σημεία για κολύμπι και λίγο εξοχική, με παγόνια στο κτήμα.»</p><p data-l="en">“I liked the location being close to good swimming and slightly rural, having peacocks on the property.”</p><cite><span data-l="el">Λίζα, Αυστραλία</span><span data-l="en">Lisa, Australia</span> · Booking.com</cite></blockquote>
+      <blockquote><p>«Υπέροχη θέα και τοποθεσία, μέσα στα δέντρα. Πεντακάθαρα.»</p><cite><span>Ευαγγελία, Κύπρος</span> · Booking.com</cite></blockquote>
+      <blockquote><p>«Η τοποθεσία ήταν σκέτη ευτυχία. Το διαμέρισμα είναι ολόκληρο εξοχικό σπίτι, ιδανικό για οικογένεια.»</p><cite><span>Κωνσταντίνα, Αυστρία</span> · Booking.com</cite></blockquote>
+      <blockquote><p>«Μου άρεσε που η τοποθεσία είναι κοντά σε ωραία σημεία για κολύμπι και λίγο εξοχική, με παγόνια στο κτήμα.»</p><cite><span>Λίζα, Αυστραλία</span> · Booking.com</cite></blockquote>
     </div>
   </div>
 </section>
@@ -373,35 +378,35 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 <section class="book" id="book">
   <div class="wrap book-grid">
     <div class="text">
-      <p class="eyebrow"><span data-l="el">Απευθείας κράτηση</span><span data-l="en">Book direct</span></p>
-      <h2><span data-l="el">Γράψτε μας απευθείας</span><span data-l="en">Talk to us directly</span></h2>
-      <p><span data-l="el">Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε. <b>Χειμερινή προσφορά: 120 € τη βραδιά, από 2 βράδια, όλα μέσα.</b></span><span data-l="en">No platform in between: you speak directly with Giannis, who will reply with availability and price. Fill in your dates and send your request, or call. <b>Winter offer: €120 a night, 2 nights minimum, everything included.</b></span></p>
+      <p class="eyebrow"><span>Απευθείας κράτηση</span></p>
+      <h2><span>Γράψτε μας απευθείας</span></h2>
+      <p><span>Χωρίς πλατφόρμα στη μέση: μιλάτε κατευθείαν με τον Γιάννη, που θα σας απαντήσει για διαθεσιμότητα και τιμή. Συμπληρώστε τις ημερομηνίες και στείλτε το αίτημα, ή τηλεφωνήστε. <b>Χειμερινή προσφορά: 120 € τη βραδιά, από 2 βράδια, όλα μέσα.</b></span></p>
       <div class="contact">
-        <div><small><span data-l="el">Τηλέφωνο · WhatsApp · Viber</span><span data-l="en">Phone · WhatsApp · Viber</span></small><b id="phone"><a class="tel" href="tel:+306989060386">+30 698 906 0386</a></b><span class="acts"><a class="copy" href="tel:+306989060386"><span data-l="el">Κλήση</span><span data-l="en">Call</span></a><a class="copy" href="https://wa.me/306989060386" target="_blank" rel="noopener">WhatsApp</a><button class="copy" type="button" data-copy="+306989060386"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></span></div>
-        <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span data-l="el">Αντιγραφή</span><span data-l="en">Copy</span></button></div>
-        <div><small><span data-l="el">Άφιξη / αναχώρηση</span><span data-l="en">Check-in / check-out</span></small><span>13:00–17:00 · <span data-l="el">έως</span><span data-l="en">by</span> 11:00</span></div>
+        <div><small><span>Τηλέφωνο · WhatsApp · Viber</span></small><b id="phone"><a class="tel" href="tel:+306989060386">+30 698 906 0386</a></b><span class="acts"><a class="copy" href="tel:+306989060386"><span>Κλήση</span></a><a class="copy" href="https://wa.me/306989060386" target="_blank" rel="noopener">WhatsApp</a><button class="copy" type="button" data-copy="+306989060386"><span>Αντιγραφή</span></button></span></div>
+        <div><small>Email</small><b id="email">giannisvelanis@gmail.com</b><button class="copy" type="button" data-copy="giannisvelanis@gmail.com"><span>Αντιγραφή</span></button></div>
+        <div><small><span>Άφιξη / αναχώρηση</span></small><span>13:00–17:00 · <span>έως</span> 11:00</span></div>
       </div>
     </div>
 
     <form id="req" novalidate>
-      <div class="field"><label for="f-in"><span data-l="el">Άφιξη</span><span data-l="en">Arrival</span></label><input id="f-in" type="date" required></div>
-      <div class="field"><label for="f-out"><span data-l="el">Αναχώρηση</span><span data-l="en">Departure</span></label><input id="f-out" type="date" required></div>
-      <div class="field"><label for="f-adults"><span data-l="el">Ενήλικες</span><span data-l="en">Adults</span></label><select id="f-adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
-      <div class="field"><label for="f-kids"><span data-l="el">Παιδιά</span><span data-l="en">Children</span></label><select id="f-kids"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-      <div class="field"><label for="f-units"><span data-l="el">Διαμερίσματα</span><span data-l="en">Apartments</span></label><select id="f-units"><option value="1" selected>1</option><option value="2">2</option></select></div>
-      <div class="field"><label for="f-name"><span data-l="el">Όνομα</span><span data-l="en">Your name</span></label><input id="f-name" type="text" autocomplete="name" required></div>
-      <div class="field"><label for="f-phone"><span data-l="el">Τηλέφωνο</span><span data-l="en">Phone</span></label><input id="f-phone" type="tel" autocomplete="tel" required></div>
-      <div class="field"><label for="f-email"><span data-l="el">Email (προαιρετικό)</span><span data-l="en">Email (optional)</span></label><input id="f-email" type="email" autocomplete="email"></div>
-      <div class="field full"><label for="f-msg"><span data-l="el">Μήνυμα (προαιρετικό)</span><span data-l="en">Message (optional)</span></label><textarea id="f-msg"></textarea></div>
+      <div class="field"><label for="f-in"><span>Άφιξη</span></label><input id="f-in" type="date" required></div>
+      <div class="field"><label for="f-out"><span>Αναχώρηση</span></label><input id="f-out" type="date" required></div>
+      <div class="field"><label for="f-adults"><span>Ενήλικες</span></label><select id="f-adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+      <div class="field"><label for="f-kids"><span>Παιδιά</span></label><select id="f-kids"><option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div class="field"><label for="f-units"><span>Διαμερίσματα</span></label><select id="f-units"><option value="1" selected>1</option><option value="2">2</option></select></div>
+      <div class="field"><label for="f-name"><span>Όνομα</span></label><input id="f-name" type="text" autocomplete="name" required></div>
+      <div class="field"><label for="f-phone"><span>Τηλέφωνο</span></label><input id="f-phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="f-email"><span>Email (προαιρετικό)</span></label><input id="f-email" type="email" autocomplete="email"></div>
+      <div class="field full"><label for="f-msg"><span>Μήνυμα (προαιρετικό)</span></label><textarea id="f-msg"></textarea></div>
       <div class="form-actions">
-        <button class="btn" type="submit" id="f-send"><span data-l="el">Αποστολή αιτήματος</span><span data-l="en">Send request</span></button>
+        <button class="btn" type="submit" id="f-send"><span>Αποστολή αιτήματος</span></button>
         <span class="err" id="f-err" hidden></span>
       </div>
       <div class="result" id="f-result" hidden>
         <p id="f-ok" style="margin:0;font-weight:600"></p>
         <pre id="f-text"></pre>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <button class="btn ghost" type="button" id="f-copy"><span data-l="el">Αντιγραφή κειμένου</span><span data-l="en">Copy text</span></button>
+          <button class="btn ghost" type="button" id="f-copy"><span>Αντιγραφή κειμένου</span></button>
         </div>
       </div>
     </form>
@@ -410,27 +415,36 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 <footer>
   <div class="wrap">
-    <span>Windmill Apartments · <span data-l="el">Θέση Μύλος, 33052 Γαλαξίδι</span><span data-l="en">Mylos, 33052 Galaxidi, Greece</span></span>
-    <span><span data-l="el">ΑΜΑ</span><span data-l="en">Registry no. (AMA)</span> 00003553173 · 00003553189</span>
+    <span>Windmill Apartments · <span>Θέση Μύλος, 33052 Γαλαξίδι</span></span>
+    <span><span>ΑΜΑ</span> 00003553173 · 00003553189</span>
   </div>
 </footer>
 
-<div class="lightbox" id="lb" hidden><button type="button" id="lb-close"><span data-l="el">Κλείσιμο</span><span data-l="en">Close</span></button><button type="button" class="lb-nav" id="lb-prev" aria-label="Previous">&#8249;</button><img id="lb-img" alt=""><button type="button" class="lb-nav" id="lb-next" aria-label="Next">&#8250;</button><div class="lb-count" id="lb-count"></div></div>
+<div class="lightbox" id="lb" hidden><button type="button" id="lb-close"><span>Κλείσιμο</span></button><button type="button" class="lb-nav" id="lb-prev" aria-label="Προηγούμενη">&#8249;</button><img id="lb-img" alt=""><button type="button" class="lb-nav" id="lb-next" aria-label="Επόμενη">&#8250;</button><div class="lb-count" id="lb-count"></div></div>
 </div>
 
 <script>
 (function(){
-  var root=document.getElementById('wm');
-  function setLang(l){
-    root.dataset.lang=l;
-    document.getElementById('lang-el').setAttribute('aria-pressed',l==='el');
-    document.getElementById('lang-en').setAttribute('aria-pressed',l==='en');
-    try{localStorage.setItem('wm-lang',l)}catch(e){}
+  var root=document.getElementById('wm'),L=root.dataset.lang;
+  var T={
+    el:{copied:'Αντιγράφηκε',dates:'Συμπληρώστε ημερομηνίες άφιξης και αναχώρησης.',past:'Η ημερομηνία άφιξης έχει περάσει.',order:'Η αναχώρηση πρέπει να είναι μετά την άφιξη.',name:'Γράψτε το όνομά σας.',phone:'Γράψτε ένα τηλέφωνο επικοινωνίας.',
+      hello:'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.',arr:'Άφιξη',dep:'Αναχώρηση',nights:'νύχτες',adults:'Ενήλικες',kids:'παιδιά',units:'Διαμερίσματα',tel:'Τηλ.',
+      sending:'Αποστολή…',ok:'✓ Το αίτημά σας στάλθηκε. Θα σας απαντήσουμε σύντομα.',fail:'Η αποστολή δεν πέτυχε — αντιγράψτε το κείμενο και στείλτε το στο +30 698 906 0386 (WhatsApp/Viber) ή τηλεφωνήστε.'},
+    en:{copied:'Copied',dates:'Please fill in arrival and departure dates.',past:'The arrival date is in the past.',order:'Departure must be after arrival.',name:'Please add your name.',phone:'Please add a phone number.',
+      hello:'Hello, I am interested in Windmill Apartments.',arr:'Arrival',dep:'Departure',nights:'nights',adults:'Adults',kids:'children',units:'Apartments',tel:'Phone',
+      sending:'Sending…',ok:'✓ Your request has been sent. We will reply shortly.',fail:'Sending failed — copy the text and send it to +30 698 906 0386 (WhatsApp/Viber) or call.'},
+    fr:{copied:'Copié',dates:'Veuillez indiquer les dates d\u2019arrivée et de départ.',past:'La date d\u2019arrivée est déjà passée.',order:'Le départ doit être après l\u2019arrivée.',name:'Veuillez indiquer votre nom.',phone:'Veuillez indiquer un numéro de téléphone.',
+      hello:'Bonjour, je suis intéressé(e) par les Windmill Apartments.',arr:'Arrivée',dep:'Départ',nights:'nuits',adults:'Adultes',kids:'enfants',units:'Appartements',tel:'Tél.',
+      sending:'Envoi…',ok:'✓ Votre demande a bien été envoyée. Nous vous répondrons rapidement.',fail:'L\u2019envoi a échoué — copiez le texte et envoyez-le au +30 698 906 0386 (WhatsApp/Viber) ou appelez-nous.'}
+  }[L]||{};
+  // on the Greek page, point non-Greek browsers to their language (no automatic redirect)
+  if(L==='el'){
+    var bl=(navigator.language||'').toLowerCase(),h=document.getElementById('langhint');
+    if(bl&&bl.indexOf('el')!==0&&h){
+      h.innerHTML=bl.indexOf('fr')===0?'<a href="/fr/" hreflang="fr">Cette page existe en français →</a>':'<a href="/en/" hreflang="en">This page is available in English →</a>';
+      h.hidden=false;
+    }
   }
-  var saved=null; try{saved=localStorage.getItem('wm-lang')}catch(e){}
-  setLang(saved||((navigator.language||'').toLowerCase().indexOf('el')===0?'el':'en'));
-  document.getElementById('lang-el').onclick=function(){setLang('el')};
-  document.getElementById('lang-en').onclick=function(){setLang('en')};
 
   // gallery lightbox
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
@@ -464,7 +478,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   });
 
   function copy(text,btn){
-    function done(){var o=btn.innerHTML;btn.textContent=root.dataset.lang==='el'?'Αντιγράφηκε':'Copied';setTimeout(function(){btn.innerHTML=o},1600)}
+    function done(){var o=btn.innerHTML;btn.textContent=T.copied;setTimeout(function(){btn.innerHTML=o},1600)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){})}
   }
   document.querySelectorAll('.copy').forEach(function(b){b.onclick=function(){copy(b.dataset.copy,b)}});
@@ -479,30 +493,28 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   document.getElementById('req').addEventListener('submit',function(e){
     e.preventDefault();
     if(sent||document.getElementById('f-send').disabled) return;
-    var el=root.dataset.lang==='el',g=function(id){return document.getElementById(id).value.trim()};
+    var g=function(id){return document.getElementById(id).value.trim()};
     var a=g('f-in'),d=g('f-out'),n=g('f-name'),err=document.getElementById('f-err');
     var msg='';
-    if(!a||!d) msg=el?'Συμπληρώστε ημερομηνίες άφιξης και αναχώρησης.':'Please fill in arrival and departure dates.';
-    else if(a<iso) msg=el?'Η ημερομηνία άφιξης έχει περάσει.':'The arrival date is in the past.';
-    else if(d<=a) msg=el?'Η αναχώρηση πρέπει να είναι μετά την άφιξη.':'Departure must be after arrival.';
-    else if(!n) msg=el?'Γράψτε το όνομά σας.':'Please add your name.';
-    else if(!g('f-phone')) msg=el?'Γράψτε ένα τηλέφωνο επικοινωνίας.':'Please add a phone number.';
+    if(!a||!d) msg=T.dates;
+    else if(a<iso) msg=T.past;
+    else if(d<=a) msg=T.order;
+    else if(!n) msg=T.name;
+    else if(!g('f-phone')) msg=T.phone;
     err.textContent=msg; err.hidden=!msg; if(msg) return;
     var nights=Math.round((new Date(d)-new Date(a))/864e5),u=g('f-units'),k=g('f-kids'),ad=g('f-adults'),m=g('f-msg');
-    var txt=el
-      ? 'Γεια σας, ενδιαφέρομαι για τα Windmill Apartments.\nΆφιξη: '+fmt(a)+'\nΑναχώρηση: '+fmt(d)+' ('+nights+' νύχτες)\nΕνήλικες: '+ad+', παιδιά: '+k+'\nΔιαμερίσματα: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nΤηλ.: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'')
-      : 'Hello, I am interested in Windmill Apartments.\nArrival: '+fmt(a)+'\nDeparture: '+fmt(d)+' ('+nights+' nights)\nAdults: '+ad+', children: '+k+'\nApartments: '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\nPhone: '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'');
+    var txt=T.hello+'\n'+T.arr+': '+fmt(a)+'\n'+T.dep+': '+fmt(d)+' ('+nights+' '+T.nights+')\n'+T.adults+': '+ad+', '+T.kids+': '+k+'\n'+T.units+': '+u+(m?'\n\n'+m:'')+'\n\n'+n+'\n'+T.tel+': '+g('f-phone')+(g('f-email')?'\nEmail: '+g('f-email'):'');
     document.getElementById('f-text').textContent=txt;
     document.getElementById('f-result').hidden=false;
     document.getElementById('f-copy').onclick=function(){copy(txt,this)};
     var ok=document.getElementById('f-ok'),sb=document.getElementById('f-send');
-    ok.textContent=el?'Αποστολή…':'Sending…'; sb.disabled=true;
-    var data={access_key:'65e8808b-972e-4efc-a510-9fdb1b8d2247',subject:'Νέο αίτημα κράτησης: '+n+', '+fmt(a)+'–'+fmt(d),from_name:'windmillapartments.gr',
+    ok.textContent=T.sending; sb.disabled=true;
+    var data={access_key:'65e8808b-972e-4efc-a510-9fdb1b8d2247',subject:'Νέο αίτημα κράτησης ['+L.toUpperCase()+']: '+n+', '+fmt(a)+'–'+fmt(d),from_name:'windmillapartments.gr',
       name:n,phone:g('f-phone'),email:g('f-email')||undefined,arrival:fmt(a),departure:fmt(d),nights:nights,adults:ad,children:k,apartments:u,message:txt};
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
       .then(function(r){return r.json()}).then(function(j){
         if(!j.success) throw 0;
-        ok.textContent=el?'✓ Το αίτημά σας στάλθηκε. Θα σας απαντήσουμε σύντομα.':'✓ Your request has been sent. We will reply shortly.';
+        ok.textContent=T.ok;
         var f=document.getElementById('req'); f.reset();
         f.querySelectorAll('.field,.form-actions').forEach(function(x){x.hidden=true});
         document.getElementById('f-copy').hidden=true;
@@ -510,7 +522,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
         ok.scrollIntoView({behavior:'smooth',block:'center'});
         setTimeout(function(){window.scrollTo({top:0,behavior:'smooth'})},3000);
       }).catch(function(){
-        ok.textContent=el?'Η αποστολή δεν πέτυχε — αντιγράψτε το κείμενο και στείλτε το στο +30 698 906 0386 (WhatsApp/Viber) ή τηλεφωνήστε.':'Sending failed — copy the text and send it to +30 698 906 0386 (WhatsApp/Viber) or call.';
+        ok.textContent=T.fail;
       }).then(function(){if(!sent) sb.disabled=false});
   });
 })();
