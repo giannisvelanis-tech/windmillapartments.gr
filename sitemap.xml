@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://windmillapartments.gr/</loc><lastmod>2026-11-11</lastmod>
+  <url><loc>https://windmillapartments.gr/</loc><lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/"/></url>
-  <url><loc>https://windmillapartments.gr/en/</loc><lastmod>2026-11-11</lastmod>
+  <url><loc>https://windmillapartments.gr/en/</loc><lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/"/></url>
-  <url><loc>https://windmillapartments.gr/fr/</loc><lastmod>2026-11-11</lastmod>
+  <url><loc>https://windmillapartments.gr/fr/</loc><lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/"/></url>
+  <url><loc>https://windmillapartments.gr/alevromoutzouroma/</loc><lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/alevromoutzouroma/"/></url>
+  <url><loc>https://windmillapartments.gr/en/alevromoutzouroma/</loc><lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/alevromoutzouroma/"/></url>
+  <url><loc>https://windmillapartments.gr/fr/alevromoutzouroma/</loc><lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="el" href="https://windmillapartments.gr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://windmillapartments.gr/en/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://windmillapartments.gr/fr/alevromoutzouroma/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://windmillapartments.gr/en/alevromoutzouroma/"/></url>
 </urlset>
