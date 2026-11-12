@@ -15,7 +15,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Bataille de farine de Galaxidi (Alevromoutzouroma) – Lundi pur 2027 | Windmill Apartments">
 <meta property="og:description" content="La bataille de farine de Galaxidi le Lundi pur (15 mars 2027) : ce qui se passe, un peu d'histoire, des conseils et où loger pour le long week-end du carnaval.">
-<meta property="og:image" content="https://windmillapartments.gr/img/winter-hero.jpg">
+<meta property="og:image" content="https://windmillapartments.gr/img/flour-harbour.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Commissioner:wght@300;400;500;600&display=swap">
@@ -209,8 +209,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .guide h1{font-size:clamp(2.3rem,5.6vw,3.8rem);margin:.3em 0 .4em}
 .guide h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:1.6em 0 .5em}
 .guide .lead{font-size:1.18rem;color:var(--ink)}
-.guide figure{margin:28px 0;border-radius:14px;overflow:hidden}
-.guide figure img{display:block;width:100%;height:auto}
+.guide .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 6px}
+.guide .shots img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.guide .caption{font-size:.86rem;color:var(--ink-soft);margin:0 0 8px}
+@media (max-width:560px){.guide .shots{grid-template-columns:1fr 1fr}.guide .shots img:first-child{grid-column:1/-1}}
 .guide ul.tips{padding-left:1.2em}
 .guide ul.tips li{margin:.5em 0}
 .guide .when{border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:24px 0;background:var(--wall-2)}
@@ -245,7 +247,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <p><span><b>En 2027 : lundi 15 mars.</b> Le Lundi pur change de date chaque année, car il dépend de la Pâque orthodoxe.</span></p>
     </div>
 
-    <figure><img src="/img/winter-hero.jpg" alt="Le golfe de Galaxidi en hiver" loading="lazy"></figure>
+    <div class="shots">
+      <img src="/img/flour-harbour.jpg" alt="Un enfant au visage peint en bleu sur un bateau dans le port de Galaxidi, dans un nuage de farine" width="1200" height="1600">
+      <img src="/img/flour-blue.jpg" alt="Un enfant au visage bleu dans la rue, un nuage de farine orange derrière lui" width="1100" height="1467" loading="lazy">
+      <img src="/img/flour-glasses.jpg" alt="Un enfant en lunettes de soleil et foulard, couvert de farine" width="1100" height="1467" loading="lazy">
+    </div>
+    <p class="caption"><span>Lundi pur 2024 à Galaxidi.</span></p>
 
     <h2><span>Ce qui se passe</span></h2>
     <p><span>La bataille commence le matin au port. Les combattants, souvent déguisés, lancent de la farine teinte de toutes les couleurs et se barbouillent le visage. La « bataille » principale dure quelques heures ; la fête, avec musique, repas et danses, se prolonge souvent jusqu'au soir. Galaxidi compte environ 1 700 habitants, mais des milliers de visiteurs viennent pour la journée.</span></p>

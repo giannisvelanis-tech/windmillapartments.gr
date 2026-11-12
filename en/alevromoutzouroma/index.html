@@ -15,7 +15,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:title" content="Galaxidi Flour War (Alevromoutzouroma) – Clean Monday 2027 | Windmill Apartments">
 <meta property="og:description" content="The Galaxidi flour war on Clean Monday (15 March 2027): what happens, a little history, tips, and where to stay for the Carnival long weekend.">
-<meta property="og:image" content="https://windmillapartments.gr/img/winter-hero.jpg">
+<meta property="og:image" content="https://windmillapartments.gr/img/flour-harbour.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Commissioner:wght@300;400;500;600&display=swap">
@@ -209,8 +209,10 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .guide h1{font-size:clamp(2.3rem,5.6vw,3.8rem);margin:.3em 0 .4em}
 .guide h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin:1.6em 0 .5em}
 .guide .lead{font-size:1.18rem;color:var(--ink)}
-.guide figure{margin:28px 0;border-radius:14px;overflow:hidden}
-.guide figure img{display:block;width:100%;height:auto}
+.guide .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 6px}
+.guide .shots img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+.guide .caption{font-size:.86rem;color:var(--ink-soft);margin:0 0 8px}
+@media (max-width:560px){.guide .shots{grid-template-columns:1fr 1fr}.guide .shots img:first-child{grid-column:1/-1}}
 .guide ul.tips{padding-left:1.2em}
 .guide ul.tips li{margin:.5em 0}
 .guide .when{border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:24px 0;background:var(--wall-2)}
@@ -245,7 +247,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
       <p><span><b>In 2027: Monday 15 March.</b> Clean Monday moves every year, because it depends on Orthodox Easter.</span></p>
     </div>
 
-    <figure><img src="/img/winter-hero.jpg" alt="The Gulf of Galaxidi in winter" loading="lazy"></figure>
+    <div class="shots">
+      <img src="/img/flour-harbour.jpg" alt="A child with a blue-painted face on a boat in Galaxidi harbour, in a cloud of flour" width="1200" height="1600">
+      <img src="/img/flour-blue.jpg" alt="A child with a blue face in the street, an orange cloud of flour behind" width="1100" height="1467" loading="lazy">
+      <img src="/img/flour-glasses.jpg" alt="A child in sunglasses and a headscarf, covered in flour" width="1100" height="1467" loading="lazy">
+    </div>
+    <p class="caption"><span>Clean Monday 2024 in Galaxidi.</span></p>
 
     <h2><span>What happens</span></h2>
     <p><span>The flour battle starts in the morning at the harbour. The flour fighters, many in costume, throw flour dyed every colour and smear each other's faces. The main "battle" lasts a few hours; the party, with music, food and dancing, often goes on into the night. About 1,700 people live in Galaxidi, but thousands of visitors come for the day.</span></p>
